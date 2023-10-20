@@ -28,7 +28,7 @@ const postSchema = new Schema({
         type: Date,
         default: Date.now,
         get: (timestamp) => dateFormat(timestamp),
-      },
+      }
     },
   ],
   author: [

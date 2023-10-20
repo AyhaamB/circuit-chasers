@@ -9,6 +9,7 @@ const typeDefs = `
 
   type Product {
     _id: ID!
+    name: String!
     description: Text!
     price: Number!
     stock: Number!
