@@ -1,20 +1,45 @@
 const typeDefs = `
-  type Tech {
+  type User {
     _id: ID!
     name: String!
+    email: Email!
+    posts: [Post]!
+    products: [Product]!
   }
 
-  type Matchup {
+  type Product {
     _id: ID!
-    tech1: String!
-    tech2: String!
-    tech1_votes: Int
-    tech2_votes: Int
+    description: Text!
+    price: Number!
+    stock: Number!
+    comments: [Comment]!
+    author: [User]!
+    crreatedAt: String!
+  }
+
+  type Sponsor {
+    id: ID!
+    sponsorName: String!
+    email: String
+    donation: Number!
+    contractSignedAt: String!
+    contractExpiration: String!
+  }
+
+  type Post {
+    id: ID!
+    content: Text!
+    comments: [Comment]!
+    author: String!
+    createdAt: String!
   }
 
   type Query {
-    tech: [Tech]
-    matchups(_id: String): [Matchup]
+    user(userId: ID!): User
+    sponsors: [Sponsor]!
+    sponsor(sponsorId: ID!): Sponsor
+    product(productId: ID!): Product
+    
   }
 
   type Mutation {
