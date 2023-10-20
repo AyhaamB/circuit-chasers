@@ -17,6 +17,10 @@ const sponsorSchema = new Schema({
     type: Number,
     required: true
   },
+  contractSignAt: {
+    type: Date,
+    required: true
+  },
   contractExpiration: {
     type: Date,
     required: true
