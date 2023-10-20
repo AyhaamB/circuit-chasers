@@ -5,7 +5,7 @@ body {
     Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
   font-size: 16px;
   color: #1a1a1a;
-  background-color: #bbe4e9;
+  background-color: #bbe4e9 !important;
 }
 
 .main-home {
