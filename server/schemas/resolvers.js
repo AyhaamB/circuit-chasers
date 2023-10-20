@@ -78,9 +78,10 @@ const resolvers = {
       throw AuthenticationError;
       ('You need to be logged in!');
     },
-    addProduct: async (parent, { description, price, stock }, context) => {
+    addProduct: async (parent, { name, description, price, stock }, context) => {
       if (context.user) {
         const product = await Product.create({
+          name,
           description,
           price, 
           stock,
