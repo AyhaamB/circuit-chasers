@@ -39,6 +39,12 @@ const productSchema = new Schema({
       },
     },
   ],
+  team: {
+    type: String
+  },
+  category: {
+    type: String
+  },
   author: [
     {
         type: Schema.Types.ObjectId,

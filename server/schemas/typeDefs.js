@@ -2,7 +2,7 @@ const typeDefs = `
   type User {
     _id: ID!
     name: String!
-    email: Email!
+    email: String!
     password: String!
     posts: [Post]
   }
@@ -41,6 +41,7 @@ const typeDefs = `
 
   type Post {
     _id: ID!
+    title: String!
     content: Text!
     comments: [Comment]
     author: String!
@@ -61,9 +62,9 @@ const typeDefs = `
   type Mutation {
     addUser(name: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
-    addPost(content: Text!): Post
+    addPost(title: String!, content: Text!): Post
     removePost(postId: ID!): Post
-    addProduct(description: Text!, price: Number!, stock: Number!): Product
+    addProduct(name: String!, description: Text!, price: Number!, stock: Number!): Product
     removeProduct(productId: ID!): Product
     addPostComment(postId: ID!, commentText: String!): Post
     removePostComment(postId: ID!, commentId: ID!): Post

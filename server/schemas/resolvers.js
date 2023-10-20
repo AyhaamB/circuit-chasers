@@ -1,4 +1,5 @@
 const { User, Sponsor, Product, Post } = require('../models');
+const { signToken, AuthenticationError } = require('../utils/auth');
 
 const resolvers = {
   Query: {
@@ -72,7 +73,7 @@ const resolvers = {
           { $addToSet: { posts: post._id } }
         );
 
-        return thought;
+        return product;
       }
       throw AuthenticationError;
       ('You need to be logged in!');
@@ -98,8 +99,8 @@ const resolvers = {
     },
     removeProduct: async (parent, { productId }, context) => {
       if (context.user) {
-        const propduct = await Product.findOneAndDelete({
-          _id: postId,
+        const product = await Product.findOneAndDelete({
+          _id: productId,
           author: context.user.name,
         });
 
