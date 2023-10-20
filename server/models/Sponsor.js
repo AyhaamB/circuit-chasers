@@ -1,5 +1,3 @@
-// create models
-
 const { Schema, model } = require('mongoose');
 
 const sponsorSchema = new Schema({
@@ -17,7 +15,7 @@ const sponsorSchema = new Schema({
     type: Number,
     required: true
   },
-  contractSignAt: {
+  contractSignedAt: {
     type: Date,
     required: true
   },
