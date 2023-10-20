@@ -1,5 +1,3 @@
-// create models
-
 const { Schema, model } = require('mongoose');
 
 const sponsorSchema = new Schema({
