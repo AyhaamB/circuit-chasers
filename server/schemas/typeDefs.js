@@ -3,8 +3,8 @@ const typeDefs = `
     _id: ID!
     name: String!
     email: Email!
-    posts: [Post]!
-    products: [Product]!
+    password: String!
+    posts: [Post]
   }
 
   type Product {
@@ -12,39 +12,63 @@ const typeDefs = `
     description: Text!
     price: Number!
     stock: Number!
-    comments: [Comment]!
-    author: [User]!
+    comments: [Comment]
     crreatedAt: String!
+    team: String
+    category: String
   }
 
   type Sponsor {
-    id: ID!
-    sponsorName: String!
+    _id: ID!
+    name: String!
     email: String
     donation: Number!
     contractSignedAt: String!
     contractExpiration: String!
   }
 
+  type Comment {
+    _id: ID
+    commentText: String
+    commentAuthor: String
+    createdAt: String
+  }
+
+  type Auth {
+    token: ID!
+    user: User
+  }
+
   type Post {
-    id: ID!
+    _id: ID!
     content: Text!
-    comments: [Comment]!
+    comments: [Comment]
     author: String!
     createdAt: String!
   }
 
   type Query {
-    user(userId: ID!): User
-    sponsors: [Sponsor]!
-    sponsor(sponsorId: ID!): Sponsor
+    users: [User]
+    user(name: String!): User
+    sponsors: [Sponsor]
+    sponsor(name: String!): Sponsor
     product(productId: ID!): Product
-    
+    products(team: String, category: String): [Product]
+    posts(author: String): [Post]
+    post(postId: ID!): Post
   }
 
   type Mutation {
-    createMatchup(tech1: String!, tech2: String!): Matchup
-    createVote(_id: String!, techNum: Int!): Matchup
+    addUser(name: String!, email: String!, password: String!): Auth
+    login(email: String!, password: String!): Auth
+    addPost(content: Text!): Post
+    removePost(postId: ID!): Post
+    addProduct(description: Text!, price: Number!, stock: Number!): Product
+    removeProduct(productId: ID!): Product
+    addPostComment(postId: ID!, commentText: String!): Post
+    removePostComment(postId: ID!, commentId: ID!): Post
+    addProductComment(productId: ID!, commentText: String!): Product
+    removeProductComment(productId: ID!, commentId: ID!): Product
   }
 `;
 

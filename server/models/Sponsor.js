@@ -3,7 +3,7 @@
 const { Schema, model } = require('mongoose');
 
 const sponsorSchema = new Schema({
-  sponsorName: {
+  name: {
     type: String,
     required: true,
     unique: true,
