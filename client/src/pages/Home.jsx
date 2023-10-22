@@ -3,7 +3,7 @@ import { useQuery } from "@apollo/client";
 import { QUERY_MATCHUPS } from "../utils/queries";
 
 //componets 
-import FavoriteRacer from "../componets/FavoriteRacer";
+import FavoriteRacer from "../componets/HomepageComponets/FavoriteRacer";
 
 const Home = () => {
   const { loading, data } = useQuery(QUERY_MATCHUPS, {

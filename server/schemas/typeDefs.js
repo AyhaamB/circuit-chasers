@@ -10,11 +10,11 @@ const typeDefs = `
   type Product {
     _id: ID!
     name: String!
-    description: Text!
-    price: Number!
-    stock: Number!
+    description: String!
+    price: Float!
+    stock: Float!
     comments: [Comment]
-    crreatedAt: String!
+    createdAt: String!
     team: String
     category: String
   }
@@ -23,7 +23,7 @@ const typeDefs = `
     _id: ID!
     name: String!
     email: String
-    donation: Number!
+    donation: Float!
     contractSignedAt: String!
     contractExpiration: String!
   }
@@ -43,7 +43,7 @@ const typeDefs = `
   type Post {
     _id: ID!
     title: String!
-    content: Text!
+    content: String!
     comments: [Comment]
     author: String!
     createdAt: String!
@@ -58,14 +58,15 @@ const typeDefs = `
     products(team: String, category: String): [Product]
     posts(author: String): [Post]
     post(postId: ID!): Post
+    me: User
   }
 
   type Mutation {
     addUser(name: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
-    addPost(title: String!, content: Text!): Post
+    addPost(title: String!, content: String!): Post
     removePost(postId: ID!): Post
-    addProduct(name: String!, description: Text!, price: Number!, stock: Number!): Product
+    addProduct(name: String!, description: String!, price: Float!, stock: Float!): Product
     removeProduct(productId: ID!): Product
     addPostComment(postId: ID!, commentText: String!): Post
     removePostComment(postId: ID!, commentId: ID!): Post

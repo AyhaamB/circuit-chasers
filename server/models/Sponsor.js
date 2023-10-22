@@ -10,7 +10,7 @@ const sponsorSchema = new Schema({
     type: String,
     unique: true,
     match: /^\S+@\S+\.\S+$/,
-  },
+  },  
   donation: {
     type: Number,
     required: true

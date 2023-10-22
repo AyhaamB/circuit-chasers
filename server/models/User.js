@@ -9,9 +9,10 @@ const userSchema = new Schema({
     unique: true,
   },
   email: {
-    type: Email,
+    type: String,
     required: true,
-    unique: true
+    unique: true,
+    match: /^\S+@\S+\.\S+$/,
   },
   posts: [
     {
