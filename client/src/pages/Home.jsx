@@ -1,16 +1,16 @@
 import { Link } from "react-router-dom";
 import { useQuery } from "@apollo/client";
-import { QUERY_MATCHUPS } from "../utils/queries";
+import {QUERY_USER } from "../utils/queries";
 
 //componets 
 import FavoriteRacer from "../componets/HomepageComponets/FavoriteRacer";
 
 const Home = () => {
-  const { loading, data } = useQuery(QUERY_MATCHUPS, {
+  const { loading, data } = useQuery(QUERY_USER, {
     fetchPolicy: "no-cache",
   });
 
-  const matchupList = data?.matchups || [];
+  const matchupList = data?.user || [];
 
   return (
     <div className="main-home">
