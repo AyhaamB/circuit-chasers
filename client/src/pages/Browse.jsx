@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import { QUERY_USER } from "../utils/queries";
+import CatagoryCardComponet from "../componets/BrowseComponets/CatagoryCardComponet"
 
 const Browse = () => {
   const { loading, data } = useQuery(QUERY_USER, {
@@ -10,18 +11,10 @@ const Browse = () => {
   return (
     <div className="main-browse">
       <div className="post-container">
-        <div className="browse-post">
-          <p>This is a post placeholder</p>
-        </div>
-        <div className="browse-post">
-          <p>This is a post placeholder</p>
-        </div>
-        <div className="browse-post">
-          <p>This is a post placeholder</p>
-        </div>
-        <div className="browse-post">
-          <p>This is a post placeholder</p>
-        </div>
+       <CatagoryCardComponet title="Schedule" desc="Most Recent Race"  />
+       <CatagoryCardComponet title="Racer" desc="Racer Name"  />
+       <CatagoryCardComponet title="Circuits" desc="Circuit Name"  />
+       <CatagoryCardComponet title="Teams" desc="Team name"  />        
       </div>
     </div>
   );
