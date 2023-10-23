@@ -4,6 +4,7 @@ import {QUERY_USER } from "../utils/queries";
 
 //componets 
 import FavoriteRacer from "../componets/HomepageComponets/FavoriteRacer";
+import DailyPost from "../componets/HomepageComponets/DailyPost";
 
 const Home = () => {
   const { loading, data } = useQuery(QUERY_USER, {
@@ -15,7 +16,7 @@ const Home = () => {
   return (
     <div className="main-home">
       <div className="daily-post">
-        <p>Top Post</p>
+        <DailyPost/>
       </div>
       <div className="fav-racer">
 
