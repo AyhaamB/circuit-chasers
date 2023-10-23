@@ -1,6 +1,5 @@
 [
     {
-      "_id": "sponsor2",
       "name": "Sponsor 2",
       "email": "sponsor2@example.com",
       "donation": 10000,
@@ -8,7 +7,6 @@
       "contractExpiration": "2024-10-10T12:00:00Z"
     },
     {
-        "_id": "sponsor1",
         "name": "Sponsor 1",
         "email": "sponsor1@example.com",
         "donation": 30000,
@@ -16,7 +14,6 @@
         "contractExpiration": "2024-10-10T12:00:00Z"
       },
       {
-        "_id": "sponsor3",
         "name": "Sponsor 3",
         "email": "sponsor3@example.com",
         "donation": 5000,
@@ -24,7 +21,6 @@
         "contractExpiration": "2024-10-10T12:00:00Z"
       },
       {
-        "_id": "sponsor4",
         "name": "Sponsor 4",
         "email": "sponsor4@example.com",
         "donation": 3000,
@@ -32,7 +28,6 @@
         "contractExpiration": "2024-10-10T12:00:00Z"
       },
       {
-        "_id": "sponsor5",
         "name": "Sponsor 5",
         "email": "sponsor5@example.com",
         "donation": 15000,
