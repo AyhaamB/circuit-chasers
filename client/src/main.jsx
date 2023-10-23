@@ -9,7 +9,9 @@ import Post from './pages/Post';
 import Vote from './pages/Vote';
 import Browse from './pages/Browse';
 import Merch from './pages/Merch';
+import News from './pages/News.jsx';
 import NotFound from './pages/NotFound';
+import Donate from './pages/Donate.jsx';
 
 const router = createBrowserRouter([
   {
@@ -35,6 +37,12 @@ const router = createBrowserRouter([
       }, {
         path: '/merch',
         element: <Merch />
+      }, {
+        path: '/news',
+        element: <News />
+      }, {
+        path: '/donate',
+        element: <Donate/>
       }
     ],
   },
