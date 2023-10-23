@@ -16,9 +16,8 @@ const resolvers = {
     post: async (parent, { postId }) => {
       return Post.findOne({ _id: postId });
     },
-    products: async (parent, { author }) => {
-      const params = author ? { author } : {};
-      return Product.find(params).sort({ createdAt: -1 }).populate('comments');
+    products: async () => {      
+      return Product.find().sort({ createdAt: -1 }).populate('comments');
     },
     product: async (parent, { productId }) => {
       return Product.findOne({ _id: productId });
@@ -52,8 +51,7 @@ const resolvers = {
         const sponsor = await Sponsor.findOneAndDelete({_id: sponsorId});
        
         return sponsor;
-      }    
-    },
+      },
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
 
@@ -75,16 +73,15 @@ const resolvers = {
       if (context.user) {
         const post = await Post.create({
           title,
-          content,
-          author: context.user.name,
+          content
         });
 
         await User.findOneAndUpdate(
           { _id: context.user._id },
           { $addToSet: { posts: post._id } }
         );
-
-        return product;
+          
+        return post;
       }
       throw AuthenticationError;
       ('You need to be logged in!');
@@ -111,8 +108,7 @@ const resolvers = {
           name,
           description,
           price, 
-          stock,
-          author: context.user.name,
+          stock
         });
 
         await User.findOneAndUpdate(
@@ -120,7 +116,7 @@ const resolvers = {
           { $addToSet: { products: product._id } }
         );
 
-        return thought;
+        return product;
       }
       throw AuthenticationError;
       ('You need to be logged in!');
@@ -226,7 +222,8 @@ const resolvers = {
       throw AuthenticationError;
     },
 }
-;
+};
+
 
 
 module.exports = resolvers;

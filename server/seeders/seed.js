@@ -15,7 +15,11 @@ db.once('open', async () => {
 
   await User.create(userData);
   await Post.insertMany(postData);
-  await Product.insertMany(productData);
+  await Product.insertMany(productData.map((data)=> ({
+    ...data, 
+    author: userData[Math.floor(Math.random() * userData.length)].name 
+  }))
+  );
   await Sponsor.insertMany(sponsorData);
 
   for (let i = 0; i < postData.length; i++) {
@@ -29,6 +33,7 @@ db.once('open', async () => {
       }
     );
   }
+  
 
   console.log('Data seeded!');
   process.exit(0);
