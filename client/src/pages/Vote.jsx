@@ -1,16 +1,16 @@
 import { useQuery, useMutation } from '@apollo/client';
 import { useParams, Link } from 'react-router-dom';
 // import { CREATE_VOTE } from '../utils/mutations';
-import { QUERY_MATCHUPS } from '../utils/queries';
+import { QUERY_USER } from '../utils/queries';
 
 const Vote = () => {
   let { id } = useParams();
 
-  const { loading, data } = useQuery(QUERY_MATCHUPS, {
+  const { loading, data } = useQuery(QUERY_USER, {
     variables: { _id: id },
   });
 
-  const matchup = data?.matchups || [];
+  const matchup = data?.user || [];
 
   const [createVote, { error }] = useMutation(CREATE_VOTE);
 
@@ -49,7 +49,7 @@ const Vote = () => {
             <br></br>
             <Link to="/">
               <button className="btn btn-lg btn-danger">
-                View all matchups
+                View all USER
               </button>
             </Link>
           </div>
