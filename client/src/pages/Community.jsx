@@ -10,6 +10,9 @@ const Community = () => {
   return (
     <div className="main-disc">
       <div className="post-container">
+        <div className="disc-title">
+          <h2>Trending Today</h2>
+        </div>
         <div className="disc-post">
           <p>This is a post placeholder</p>
         </div>
