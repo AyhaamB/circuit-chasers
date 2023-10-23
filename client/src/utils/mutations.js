@@ -6,35 +6,38 @@ export const LOGIN_USER = gql`
       token
       user {
         _id
-        username
+        name
+        email
       }
     }
   }
 `;
 
 export const ADD_USER = gql`
-  mutation addUser($username: String!, $email: String!, $password: String!) {
-    addUser(username: $username, email: $email, password: $password) {
+  mutation addUser($name: String!, $email: String!, $password: String!) {
+    addUser(name: $name, email: $email, password: $password) {
       token
       user {
         _id
-        username
+        name
+        email
       }
     }
   }
 `;
 
 export const ADD_POST = gql`
-  mutation addPost($postText: String!) {
-    addpost(postText: $postText) {
+  mutation addPost($title: String!, content: String!) {
+    addpost(title: $title, content: $content) {
       _id
-      postText
-      postAuthor
+      title
+      content
       createdAt
       comments {
         _id
         commentText
       }
+      author
     }
   }
 `;
@@ -51,8 +54,8 @@ export const ADD_POST_COMMENT = gql`
 `;
 
 export const ADD_PRODUCT = gql`
-  mutation addProduct($description: String!, $name: String!, $price: Number!, $stock: Number!) {
-    addpost(postText: $postText) {
+  mutation addProduct($description: String!, $name: String!, $price: Float!, $stock: Float!) {
+    addproduct(name: $name, description: $description, price: $price, stock: $stock) {
       _id
       name
       description
@@ -60,6 +63,8 @@ export const ADD_PRODUCT = gql`
       stock
       team
       category
+      author
+      createdAt
       comments {
         _id
         commentText

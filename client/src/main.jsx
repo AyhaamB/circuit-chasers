@@ -1,6 +1,7 @@
 import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
+// import 'bootstrap/dist/css/bootstrap.css';
 import App from './App.jsx';
 import Home from './pages/Home';
 import Community from './pages/Community.jsx';
@@ -9,7 +10,6 @@ import Vote from './pages/Vote';
 import Browse from './pages/Browse';
 import Merch from './pages/Merch';
 import NotFound from './pages/NotFound';
-import 'bootstrap/dist/css/bootstrap.css';
 
 const router = createBrowserRouter([
   {
