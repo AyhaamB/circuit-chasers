@@ -7,6 +7,8 @@ import Home from './pages/Home';
 import Community from './pages/Community.jsx';
 import Post from './pages/Post';
 import Vote from './pages/Vote';
+import Browse from './pages/Browse';
+import Merch from './pages/Merch';
 import NotFound from './pages/NotFound';
 
 const router = createBrowserRouter([
@@ -27,6 +29,12 @@ const router = createBrowserRouter([
       }, {
         path: '/post/:id',
         element: <Post />
+      }, {
+        path: '/browse',
+        element: <Browse />
+      }, {
+        path: '/merch',
+        element: <Merch />
       }
     ],
   },
