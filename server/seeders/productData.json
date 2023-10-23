@@ -1,0 +1,34 @@
+[
+    {
+      "name": "Product 1",
+      "description": "Description for Product 1",
+      "price": 19.99,
+      "stock": 50
+    },
+    {
+        "name": "Product 2",
+        "description": "Description for Product 2",
+        "price": 19.99,
+        "stock": 50
+    }, 
+      {
+        "name": "Product 3",
+        "description": "Description for Product 3",
+        "price": 19.99,
+        "stock": 50
+      },
+      {
+        "name": "Product 4",
+        "description": "Description for Product 4",
+        "price": 19.99,
+        "stock": 50
+      },
+      {
+        "name": "Product 5",
+        "description": "Description for Product 5",
+        "price": 19.99,
+        "stock": 50,
+        "team": "Team A",
+        "category": "Will I Ams"
+      }
+  ]

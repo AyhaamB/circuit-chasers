@@ -24,8 +24,8 @@ const typeDefs = `
     name: String!
     email: String
     donation: Float!
-    contractSignedAt: String!
-    contractExpiration: String!
+    contractSignedAt: Date!
+    contractExpiration: Date!
   }
 
   type Comment {
@@ -72,6 +72,7 @@ const typeDefs = `
     removePostComment(postId: ID!, commentId: ID!): Post
     addProductComment(productId: ID!, commentText: String!): Product
     removeProductComment(productId: ID!, commentId: ID!): Product
+    addSponsor(name: String!, email: String, donation: Float!, contractSignedAt: Date!, contractExpiration: Date!)
   }
 `;
 

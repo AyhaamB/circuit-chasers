@@ -13,11 +13,29 @@ db.once('open', async () => {
   await cleanDB('Product', 'products');
   await cleanDB('Sponsor', 'sponsors');
 
-  await User.insertMany(userData);
+  await User.create(userData);
   await Post.insertMany(postData);
   await Product.insertMany(productData);
   await Sponsor.insertMany(sponsorData);
 
+  for (let i = 0; i < postData.length; i++) {
+    const { _id, author } = await Post.create(postData[i]);
+    const user = await User.findOneAndUpdate(
+      { name: author },
+      {
+        $addToSet: {
+          posts: _id,
+        },
+      }
+    );
+  }
+
   console.log('Data seeded!');
   process.exit(0);
 });
+
+
+/*
+await User.insertMany(userData);
+
+*/

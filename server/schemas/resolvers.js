@@ -44,6 +44,16 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
+    addSponsor: async (parent, { name, email, donation, contractSignedAt, contractExpiration }) => {
+      const sponsor = await Sponsor.create({ name, email, donation, contractSignedAt, contractExpiration  });
+      return sponsor;
+    },
+    removeSponsor: async (parent, { sponsorId }, context) => {      
+        const sponsor = await Sponsor.findOneAndDelete({_id: sponsorId});
+       
+        return sponsor;
+      }    
+    },
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
 
@@ -61,9 +71,10 @@ const resolvers = {
 
       return { token, user };
     },
-    addPost: async (parent, { content }, context) => {
+    addPost: async (parent, { title, content }, context) => {
       if (context.user) {
         const post = await Post.create({
+          title,
           content,
           author: context.user.name,
         });
@@ -77,6 +88,22 @@ const resolvers = {
       }
       throw AuthenticationError;
       ('You need to be logged in!');
+    },
+        removePost: async (parent, { postId }, context) => {
+      if (context.user) {
+        const post = await Post.findOneAndDelete({
+          _id: postId,
+          author: context.user.name,
+        });
+
+        await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $pull: { posts: post._id } }
+        );
+
+        return post;
+      }
+      throw AuthenticationError;
     },
     addProduct: async (parent, { name, description, price, stock }, context) => {
       if (context.user) {
@@ -199,7 +226,7 @@ const resolvers = {
       throw AuthenticationError;
     },
 }
-};
+;
 
 
 module.exports = resolvers;
