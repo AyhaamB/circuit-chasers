@@ -13,34 +13,31 @@ db.once('open', async () => {
   await cleanDB('Product', 'products');
   await cleanDB('Sponsor', 'sponsors');
 
-  await User.create(userData);
-  await Post.insertMany(postData);
-  await Product.insertMany(productData.map((data)=> ({
+  let updatedPostData = postData.map((data) => ({
     ...data, 
-    author: userData[Math.floor(Math.random() * userData.length)].name 
+    author: userData[Math.floor(Math.random() * userData.length)]._id 
   }))
-  );
-  await Sponsor.insertMany(sponsorData);
 
-  for (let i = 0; i < postData.length; i++) {
-    const { _id, author } = await Post.create(postData[i]);
-    const user = await User.findOneAndUpdate(
-      { name: author },
-      {
-        $addToSet: {
-          posts: _id,
-        },
-      }
-    );
-  }
+  const Users = await User.create(userData);
+  const Products = await Product.insertMany(productData);
+  const Sponsors = await Sponsor.insertMany(sponsorData);
+
   
+  const Posts = await Post.create(postData.map(post => ({
+    ...post,
+    author: Users[Math.floor(Math.random() * Users.length)]._id
+  })));
+
+  for (const post of Posts) {
+    const authorId = post.author;
+    await User.findByIdAndUpdate(authorId, { $push: { posts: post._id } });
+  }
 
   console.log('Data seeded!');
   process.exit(0);
 });
 
-
 /*
 await User.insertMany(userData);
-
+await Post.insertMany(updatedPostData);
 */

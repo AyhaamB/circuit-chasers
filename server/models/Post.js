@@ -31,12 +31,11 @@ const postSchema = new Schema({
       }
     },
   ],
-  author: [
+  author:
     {
         type: Schema.Types.ObjectId,
         ref: "User"
-    }
-  ],
+    },
   createdAt: {
     type: Date,
     default: Date.now,

@@ -4,10 +4,10 @@ const { signToken, AuthenticationError } = require('../utils/auth');
 const resolvers = {
   Query: {
     users: async () => {
-      return User.find().populate('posts products');
+      return User.find().populate('posts');
     },
     user: async (parent, { name }) => {
-      return User.findOne({ name }).populate('posts products');
+      return User.findOne({ name }).populate('posts');
     },
     posts: async (parent, { author }) => {
       const params = author ? { author } : {};
@@ -31,7 +31,7 @@ const resolvers = {
     },
     me: async (parent, args, context) => {
       if (context.user) {
-        return User.findOne({ _id: context.user._id }).populate('posts products');
+        return User.findOne({ _id: context.user._id }).populate('posts');
       }
       throw AuthenticationError;
     },
@@ -90,7 +90,7 @@ const resolvers = {
       if (context.user) {
         const post = await Post.findOneAndDelete({
           _id: postId,
-          author: context.user.name,
+          author: context.user._id,
         });
 
         await User.findOneAndUpdate(
@@ -124,14 +124,8 @@ const resolvers = {
     removeProduct: async (parent, { productId }, context) => {
       if (context.user) {
         const product = await Product.findOneAndDelete({
-          _id: productId,
-          author: context.user.name,
+          _id: productId
         });
-
-        await User.findOneAndUpdate(
-          { _id: context.user._id },
-          { $pull: { products: product._id } }
-        );
 
         return product;
       }
