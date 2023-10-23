@@ -13,6 +13,11 @@ export default defineConfig({
         changeOrigin: true,
         secure: false,
       },
-    }
+    },
+    build: {
+      rollupOptions: {
+        external: ['bootstrap/dist/css/bootstrap.css'], 
+      },
+    },
   }
 })

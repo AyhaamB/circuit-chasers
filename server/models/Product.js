@@ -6,7 +6,7 @@ const productSchema = new Schema({
     required: true,
   },
   description: {
-    type: Text,
+    type: String,
     required: true,
     trim: true, 
     minlength: 1,
