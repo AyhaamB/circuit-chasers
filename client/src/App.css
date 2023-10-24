@@ -142,7 +142,10 @@ body {
 .random-post-title {
   padding: 10px;
   border-bottom: solid;
-  margin: 5px;
+  margin-right: 20px;
+  margin-left: 20px;
+  display: flex;
+  justify-content: center;
 }
 
 .random-post-content {
@@ -296,7 +299,16 @@ body {
   background-size: contain;
   background-repeat: no-repeat;
   min-height: 150px;
+  max-height: 150px;
   min-width: 250px;
+}
+
+.add-cart-btn {
+  height: 30px;
+  width: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .footer {
@@ -314,3 +326,4 @@ body {
 .login-btn {
   width: 150px;
 }
+
