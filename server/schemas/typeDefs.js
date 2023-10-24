@@ -7,6 +7,13 @@ const typeDefs = `
     posts: [Post]
   }
 
+  type News {
+    title: String!
+    description: String!
+    url: String!
+    urlToImage: String!
+  }
+
   type Product {
     _id: ID!
     name: String!
@@ -59,6 +66,7 @@ const typeDefs = `
     posts(author: String): [Post]
     post(postId: ID!): Post
     me: User
+    news: [News]
   }
 
   type Mutation {
@@ -74,6 +82,7 @@ const typeDefs = `
     removeProductComment(productId: ID!, commentId: ID!): Product
     addSponsor(name: String!, email: String, donation: Float!, contractSignedAt: String!, contractExpiration: String!): Sponsor
     removeSponsor(sponsorId: ID!): Sponsor
+    addNews(title: String!, description: String!, url: String!, urlToImage: String!): News
   }
 `;
 

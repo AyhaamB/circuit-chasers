@@ -29,7 +29,6 @@ const Merch = () => {
   return (
     <div className="main-cart">
       <div className="post-container">
-        <div className="prod-listing">
           <Product
             product={{ name: "Mercedes Hat", price: 104.99, description: "Team Mercedes hat, one size fits all.", stock: 23 }}
             addToCart={addToCart}
@@ -38,7 +37,6 @@ const Merch = () => {
             product={{ name: "Unlicensed copycat", price: 15.99, description: "Almost the same as the other one, but with cheap materials. One size fits all, but doesn't feel so good.", stock: 23 }}
             addToCart={addToCart}
           />
-        </div>
 
       </div>
       <div className="user-cart">
@@ -47,12 +45,6 @@ const Merch = () => {
       ) : (
         <Cart cartItems={cartItems} handleCheckout={handleCheckout} />
       )}
-        <p>Users Cart</p>
-        <ul>
-          {cartItems.map((item, index) => (
-            <li key={index}>{item.name} - ${item.price}</li>
-          ))}
-        </ul>
       </div>
     </div>
   );

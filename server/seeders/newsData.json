@@ -1,0 +1,54 @@
+[
+  {
+    "source": {
+      "id": "bbc-news",
+      "name": "BBC News"
+    },
+    "author": "https://www.facebook.com/bbcnews",
+    "title": "F1 US Grand Prix: The 16-year-old living her motorsports dream",
+    "description": "Chloe Chong started karting on the same track as Lewis Hamilton - now she's at the same F1 race weekend.",
+    "url": "https://www.bbc.co.uk/news/newsbeat-67164348",
+    "urlToImage": "https://ichef.bbci.co.uk/news/1024/branded_news/1755A/production/_131487559_gettyimages-1578678511.jpg",
+    "publishedAt": "2023-10-21T02:22:12Z",
+    "content": "When Chloe Chong thinks back to her childhood, her six-year-old self would never have dared to dream she would be where she is now.\r\nThis weekend the 16-year-old will be competing at the United State… [+5128 chars]"
+  },
+  {
+    "source": {
+      "id": "business-insider",
+      "name": "Business Insider"
+    },
+    "author": "pthompson@insider.com (Polly Thompson)",
+    "title": "Formula 1 could be coming to Apple as it mulls offering up to $2 billion a year to show races, report says",
+    "description": "Apple is considering making a bid for the global Formula 1 rights that would be as much as double their current value, Business F1 reported.",
+    "url": "https://www.businessinsider.com/formula-one-apple-mulls-two-billion-year-offer-rights-mls-2023-10",
+    "urlToImage": "https://i.insider.com/651936145640b20019d795b8?width=1200&format=jpeg",
+    "publishedAt": "2023-10-01T11:53:06Z",
+    "content": "Apple is reportedly considering making a bid of up to $2 billion a year for the rights to show Formula 1 races, according to a report by Business F1.\r\nThe iPhone maker has \"wargamed\" the idea and is … [+2443 chars]"
+  },
+  {
+    "source": {
+      "id": "business-insider",
+      "name": "Business Insider"
+    },
+    "author": "Sponsor Post",
+    "title": "The marriage of sports and technology can help narrow the gender gap",
+    "description": "A recent event hosted by Tata Communications with Formula 1 showcased how women and girls are pursuing education and careers in STEM fields.",
+    "url": "https://www.businessinsider.com/sc/gender-equality-and-community-at-forefront-in-formula-1",
+    "urlToImage": "https://i.insider.com/6512dc3951acc80019f0c321?width=1200&format=jpeg",
+    "publishedAt": "2023-09-26T13:45:01Z",
+    "content": "STEM students with Rosanna Tennant, broadcast journalist and presenter on F1TV, and Ruth Buscombe of the Alfa Romeo F1 teamTata Communications Initiatives to boost access for girls and wome… [+7153 chars]"
+  },
+  {
+    "source": {
+      "id": "abc-news",
+      "name": "ABC News"
+    },
+    "author": "ABC News",
+    "title": "WATCH: Woman becomes 1st in 5 years to test F1 car",
+    "description": "Racer Jessica Hawkins became the first woman in five years to test a Formula One car when she got behind the wheel of an Aston Martin.",
+    "url": "https://abcnews.go.com/International/video/woman-1st-5-years-test-f1-car-103524955",
+    "urlToImage": "https://i.abcnewsfe.com/a/7704badf-928d-4cf6-8bbe-eefea188664e/230927_abc_social_racer_hpMain_16x9.jpg?w=992",
+    "publishedAt": "2023-09-27T13:02:41Z",
+    "content": "Whats next for Russia? What comes next after Texas school shooting? What's next for abortion rights in America? The new battle for voting right?"
+  }
+]
