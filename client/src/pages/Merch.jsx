@@ -26,7 +26,6 @@ const Merch = () => {
     // You can implement actions after a successful payment here
     console.log('Payment was successful.');
   };
-
   return (
     <div className="main-cart">
       <div className="post-container">
@@ -48,6 +47,12 @@ const Merch = () => {
       ) : (
         <Cart cartItems={cartItems} handleCheckout={handleCheckout} />
       )}
+        <p>Users Cart</p>
+        <ul>
+          {cartItems.map((item, index) => (
+            <li key={index}>{item.name} - ${item.price}</li>
+          ))}
+        </ul>
       </div>
     </div>
   );

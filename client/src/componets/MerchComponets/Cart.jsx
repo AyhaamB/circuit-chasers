@@ -13,6 +13,7 @@ const Cart = ({ cartItems, handleCheckout }) => {
         ))}
       </ul>
       <p>Total: ${totalValue}</p>
+
       <button onClick={handleCheckout}>Proceed to Checkout</button>
     </div>
   );
