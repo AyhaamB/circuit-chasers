@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useQuery } from "@apollo/client";
-import {QUERY_USER } from "../utils/queries";
+import {QUERY_POSTS, QUERY_USER } from "../utils/queries";
 
 
 
@@ -9,11 +9,15 @@ import {QUERY_USER } from "../utils/queries";
 import FavoriteRacer from "../componets/HomepageComponets/FavoriteRacer";
 import DailyPost from "../componets/HomepageComponets/DailyPost";
 import OtherStoires from "../componets/HomepageComponets/OtherStoires";
+import DiscussionPost from "../componets/HomepageComponets/DiscussionPosts";
 
 
 
 
 const Home = () => {
+  const { loading, data } = useQuery(QUERY_POSTS);
+  const posts = data?.posts || [];
+
   return (
     <div className="main-home">
       <div className="daily-post">
@@ -23,7 +27,9 @@ const Home = () => {
       </div>
       <div className="fav-racer">
 
-        <FavoriteRacer/>
+        <FavoriteRacer
+        posts={posts}
+        />
       </div>
       <div className="other-stories">
         <OtherStoires/>
@@ -33,7 +39,9 @@ const Home = () => {
         <OtherStoires/>
       </div>
       <div className="join-disc">
-        <p>Join The Discussion</p>
+        <DiscussionPost
+        posts={posts}
+        />
       </div>
     </div>
   );
