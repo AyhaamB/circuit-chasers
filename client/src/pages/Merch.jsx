@@ -5,6 +5,9 @@ import React, { useState } from "react";
 import Product from "../componets/MerchComponets/Product";
 import Cart from "../componets/MerchComponets/Cart";
 import Payment from "../componets/MerchComponets/Payment"
+import { FaTrash } from 'react-icons/fa';
+
+
 
 const Merch = () => {
   const { loading, data } = useQuery(QUERY_USER, {
@@ -21,6 +24,11 @@ const Merch = () => {
   const handleCheckout = () => {
     setIsCheckout(true);
   };
+
+  const handleDelete = (index) => {
+    const updatedCartItems = [...cartItems.slice(0, index), ...cartItems.slice(index + 1)];
+    setCartItems(updatedCartItems);
+  }
 
   const handlePaymentSuccess = () => {
     // You can implement actions after a successful payment here
@@ -45,14 +53,9 @@ const Merch = () => {
       {isCheckout ? (
         <Payment cartItems={cartItems} handlePaymentSuccess={handlePaymentSuccess} />
       ) : (
-        <Cart cartItems={cartItems} handleCheckout={handleCheckout} />
+        <Cart cartItems={cartItems} handleCheckout={handleCheckout} handleDelete={handleDelete} />
       )}
-        <p>Users Cart</p>
-        <ul>
-          {cartItems.map((item, index) => (
-            <li key={index}>{item.name} - ${item.price}</li>
-          ))}
-        </ul>
+
       </div>
     </div>
   );

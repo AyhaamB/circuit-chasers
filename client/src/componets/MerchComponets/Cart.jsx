@@ -1,4 +1,6 @@
 import React from 'react';
+import { FaTrash } from 'react-icons/fa';
+
 
 const Cart = ({ cartItems, handleCheckout }) => {
 
@@ -9,7 +11,10 @@ const Cart = ({ cartItems, handleCheckout }) => {
       <h2>Shopping Cart</h2>
       <ul>
         {cartItems.map((item, index) => (
-          <li key={index}>{item.name} - ${item.price}</li>
+          <li key={index}>{item.name} - ${item.price}
+          <button onClick={() => handleDelete(index)}>
+              <FaTrash />
+            </button></li>
         ))}
       </ul>
       <p>Total: ${totalValue}</p>
