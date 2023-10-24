@@ -4,6 +4,10 @@ import {QUERY_USER } from "../utils/queries";
 import axios from 'axios'
 import { useEffect, useState } from 'react';
 
+import axios from "axios"
+
+import { useEffect, useState } from "react";
+
 //componets 
 import FavoriteRacer from "../componets/HomepageComponets/FavoriteRacer";
 import DailyPost from "../componets/HomepageComponets/DailyPost";
@@ -12,15 +16,6 @@ import DailyPost from "../componets/HomepageComponets/DailyPost";
 
 
 const Home = () => {
- 
-  const [news, setNews] = useState()
-
-  useEffect(() =>{
-  axios.get('https://newsapi.org/v2/everything?q=F1&apiKey=66637cfa720a42078121b0c9715aed47')
-  .then((res) =>{
-    setNews(res.data)
-    console.log(news)
-  })},[])
 
 
 

@@ -1,4 +1,7 @@
-export default function DailyPost() {
+export default function DailyPost(props) {
+  
+  console.log(props.newsArticles)
+
   return (
     <>
       <div className="dailypost-main">
