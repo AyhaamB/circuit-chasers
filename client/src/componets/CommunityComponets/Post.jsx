@@ -1,4 +1,5 @@
 export default function Post({ posts }) {
+  console.log(posts)
   return (
     <>
       {posts.map((post) => (

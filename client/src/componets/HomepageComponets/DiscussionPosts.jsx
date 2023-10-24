@@ -4,14 +4,14 @@ export default function DiscussionPost({ posts }) {
   const randomPost = posts[randomIndex];
   return (
     <>
-      <h3 className="random-post-title">Join The Discussion!</h3>
+      <h3 className="random-post-header">Join The Discussion!</h3>
       <div>
         <div className="random-post-container">
           {randomPost && (
             <a className="random-post" href="/community">
               <div className="random-post-content" key={randomPost.id}>
                 <h4>What's Trending</h4>
-                <p>{randomPost.title}</p>
+                <p className="random-post-title">{randomPost.title}</p>
                 <p>{randomPost.content}</p>
               </div>
             </a>

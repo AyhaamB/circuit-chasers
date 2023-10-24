@@ -1,7 +1,3 @@
-
-// I wrote the code for this component, but I suggest renaming this one to showcase or something and create another component called Product to Render the stuff between lines 26 and 35.
-
-
 export default function Product(props) {
   return (
     <>
