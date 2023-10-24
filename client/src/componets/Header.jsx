@@ -84,10 +84,15 @@ export default function Header() {
               placeholder="Search"
               aria-label="Search"
             ></input>
-            <button className="btn btn-outline-success" type="submit">
+            <button className="btn btn-dark" type="submit">
               Search
             </button>
           </form>
+        </div>
+        <div>
+            <button className="login-btn btn btn-dark" type="button">
+              Login/Sign Up
+            </button>
         </div>
       </div>
     </nav>

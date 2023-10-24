@@ -290,3 +290,7 @@ body {
   position: relative;
   top: -25px;
 }
+
+.login-btn {
+  width: 150px;
+}
