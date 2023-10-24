@@ -65,7 +65,6 @@ export const QUERY_PRODUCTS = gql`
       category
       team
       createdAt
-      
     }
   }
 `;
