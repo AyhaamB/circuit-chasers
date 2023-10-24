@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
 import { useQuery } from "@apollo/client";
-import { QUERY_USER } from "../utils/queries";
+import { QUERY_POSTS } from "../utils/queries";
+import Post from "../componets/CommunityComponets/Post";
 
 const Community = () => {
-  const { loading, data } = useQuery(QUERY_USER, {
-    fetchPolicy: "no-cache",
-  });
+  const { loading, data } = useQuery(QUERY_POSTS);
+  const posts = data?.posts || [];
 
   return (
     <div className="main-disc">
@@ -13,18 +13,7 @@ const Community = () => {
         <div className="disc-title">
           <h2>Trending Today</h2>
         </div>
-        <div className="disc-post">
-          <p>This is a post placeholder</p>
-        </div>
-        <div className="disc-post">
-          <p>This is a post placeholder</p>
-        </div>
-        <div className="disc-post">
-          <p>This is a post placeholder</p>
-        </div>
-        <div className="disc-post">
-          <p>This is a post placeholder</p>
-        </div>
+        <Post posts={posts} />
       </div>
       <div className="create-post">
         <p>Create Post</p>

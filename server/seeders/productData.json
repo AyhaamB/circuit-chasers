@@ -1,34 +1,33 @@
 [
-    {
-      "name": "Product 1",
-      "description": "Description for Product 1",
-      "price": 19.99,
-      "stock": 50
-    },
-    {
-        "name": "Product 2",
-        "description": "Description for Product 2",
-        "price": 19.99,
-        "stock": 50
-    }, 
-      {
-        "name": "Product 3",
-        "description": "Description for Product 3",
-        "price": 19.99,
-        "stock": 50
-      },
-      {
-        "name": "Product 4",
-        "description": "Description for Product 4",
-        "price": 19.99,
-        "stock": 50
-      },
-      {
-        "name": "Product 5",
-        "description": "Description for Product 5",
-        "price": 19.99,
-        "stock": 50,
-        "team": "Team A",
-        "category": "Will I Ams"
-      }
-  ]
+  {
+    "name": "Driver-Inspired Racing Helmet",
+    "description": "Replica of Lewis Hamilton's helmet. Get the iconic look!",
+    "price": 199.99,
+    "stock": 20
+  },
+  {
+    "name": "Team Mercedes AMG Cap",
+    "description": "Show your support for Mercedes AMG with this stylish cap.",
+    "price": 29.99,
+    "stock": 30
+  },
+  {
+    "name": "Ferrari Racing Jacket",
+    "description": "Stay warm and stylish with this Ferrari racing jacket.",
+    "price": 149.99,
+    "stock": 15
+  },
+  {
+    "name": "Red Bull Racing T-Shirt",
+    "description": "Join the Red Bull team spirit with this comfortable t-shirt.",
+    "price": 24.99,
+    "stock": 25
+  },
+  {
+    "name": "McLaren Racing Mug",
+    "description": "Start your day with McLaren! Enjoy your coffee in this Formula 1 mug.",
+    "price": 9.99,
+    "stock": 40
+  }
+]
+
