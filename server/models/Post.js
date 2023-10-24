@@ -4,7 +4,7 @@ const postSchema = new Schema({
   title: {
     type: String,
     required: true,
-    unique: true,
+    
   },
   content: {
     type: String,
@@ -31,12 +31,11 @@ const postSchema = new Schema({
       }
     },
   ],
-  author: [
+  author:
     {
         type: Schema.Types.ObjectId,
         ref: "User"
-    }
-  ],
+    },
   createdAt: {
     type: Date,
     default: Date.now,
