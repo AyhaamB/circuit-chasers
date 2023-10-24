@@ -6,43 +6,16 @@ import { Navigate, useParams } from 'react-router-dom';
 import {QUERY_SINGLE_PRODUCT, QUERY_PRODUCTS} from '../utils/queries';
 
 export default function Product(props) {
+  return (
+    <>
+        <div className="prod-info">
+          <h2 className="prod-title">Mercedes Hat</h2>
+          <h2>$104.99</h2>
+          <p>Team Mercedes hat, one size fits all.</p>
+          <p>In Stock: 23</p>
+        </div>
+        <div className="prod-list-image"></div>
+    </>
+  );
+}
 
-  const { name: userParam } = useParams();
-
-  const { loading, data } = useQuery(userParam ? QUERY_SINGLE_PRODUCT : QUERY_PRODUCTS, {
-    variables: { name: userParam },
-  });
-
-  
-  const product = data?.product
-  
-  const products = data?.products
-  
-
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-
-  if(product) { 
-    return (
-      <div>
-        <h1>{product.name}</h1>
-        <p>{product.description}</p>
-        <p>{product.price}</p>
-        <p>{product.stock}</p>
-      </div>
-    );
-  }
-
-  if (products) {
-    return (
-      products.forEach(product => {
-        <div>
-          <h3>{product.name}</h3>
-          <p>{product.price}</p>         
-      </div>
-    })
-    );
-  }
-
-  }

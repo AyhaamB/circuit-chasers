@@ -11,14 +11,12 @@ import { useEffect, useState } from "react";
 //componets 
 import FavoriteRacer from "../componets/HomepageComponets/FavoriteRacer";
 import DailyPost from "../componets/HomepageComponets/DailyPost";
+import OtherStoires from "../componets/HomepageComponets/OtherStoires";
 
 
 
 
 const Home = () => {
-
-
-
   return (
     <div className="main-home">
       <div className="daily-post">
@@ -31,7 +29,11 @@ const Home = () => {
         <FavoriteRacer/>
       </div>
       <div className="other-stories">
-        <p>Other Stories</p>
+        <OtherStoires/>
+        <OtherStoires/>
+        <OtherStoires/>
+        <OtherStoires/>
+        <OtherStoires/>
       </div>
       <div className="join-disc">
         <p>Join The Discussion</p>

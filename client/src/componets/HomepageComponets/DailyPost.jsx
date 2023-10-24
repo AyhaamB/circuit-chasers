@@ -6,7 +6,9 @@ export default function DailyPost(props) {
     <>
       <div className="dailypost-main">
         <div className="top-news-heading">
+          <a href="#">
           <h2 className="top-news-title">The Gran Prix is Here!</h2>
+          </a>
         </div>
         <div className="top-news-desc">
           <p>

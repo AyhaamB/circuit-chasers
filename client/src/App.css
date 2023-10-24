@@ -24,7 +24,7 @@ body {
 
 .daily-post {
   height: 400px;
-  background-color: #edf7fa;
+  background-color: black;
   position: relative;
   box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
   display: flex;
@@ -32,6 +32,9 @@ body {
   justify-content: space-between;
   margin: 25px 25px 0px 25px;
   background-image: url('./assets/images/main-news-test.jpeg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .top-news-heading {
@@ -46,15 +49,22 @@ body {
   height: 100%;
 }
 
+.dailypost-main a {
+  text-decoration: none;
+}
+
+.top-news-title:hover {
+  color: #F9A23E;
+}
+
 .top-news-heading:hover + .top-news-desc {
   display: inline;
-  
 }
 
 .top-news-desc p {
   position: relative;
-  bottom: 100px;
-  height: 85px;
+  bottom: 85px;
+  height: 75px;
   background-color: #1D1D1D;
   color: lightgray;
   padding: 20px;
@@ -76,13 +86,30 @@ body {
 
 .other-stories {
   height: 200px;
-  background-color: #edf7fa;
+  background-color: white;
   position: relative;
   box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 300px 300px 300px 300px 300px;
   margin: 25px 25px 0px 25px;
+  overflow: scroll;
+}
+
+.other-image {
+  background-image: url('./assets/images/main-news-test.jpeg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  max-height: 200px;
+}
+
+.other-title {
+  margin: 10px;
+  background-color: #1D1D1D;
+  color: #EAFDF8;
+  padding: 5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .fav-racer {
@@ -168,13 +195,29 @@ body {
 
 .news-post {
   height: 150px;
-  background-color: #edf7fa;
+  background-color: white;
   position: relative;
   margin: 25px;
   box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 20% 80%;
+}
+
+.article-info {
+  padding: 10px;
+}
+
+.article-image {
+  background-image: url('./assets/images/main-news-test.jpeg');
+  background-size: cover;
+  min-width: 250px;
+  max-height: 150px;
+}
+
+.article-created {
+  color: gray;
+  position: relative;
+  top: 20px;
 }
 
 .disc-title {
@@ -210,4 +253,40 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.prod-listing {
+  height: 150px;
+  background-color: white;
+  position: relative;
+  margin: 25px;
+  box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
+  display: grid;
+  grid-template-columns: 70% 30%;
+}
+
+.prod-info {
+ display: grid;
+ grid-template-columns: 70% 30%;
+ padding: 20px;
+}
+
+.prod-list-image {
+  background-image: url('./assets/images/mercedes-hat.jpg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  min-height: 150px;
+  min-width: 250px;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.bi {
+  position: relative;
+  top: -25px;
 }
