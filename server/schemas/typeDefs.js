@@ -51,7 +51,7 @@ const typeDefs = `
 
   type Query {
     users: [User]
-    user(name: String!): User
+    user(email: String!): User
     sponsors: [Sponsor]
     sponsor(name: String!): Sponsor
     product(productId: ID!): Product

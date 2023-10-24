@@ -6,8 +6,8 @@ const resolvers = {
     users: async () => {
       return User.find().populate('posts');
     },
-    user: async (parent, { name }) => {
-      return User.findOne({ name }).populate('posts');
+    user: async (parent, { email }) => {
+      return User.findOne({ email }).populate('posts');
     },
     posts: async (parent, { author }) => {
       const params = author ? { author } : {};
@@ -86,7 +86,7 @@ const resolvers = {
       throw AuthenticationError;
       ('You need to be logged in!');
     },
-        removePost: async (parent, { postId }, context) => {
+    removePost: async (parent, { postId }, context) => {
       if (context.user) {
         const post = await Post.findOneAndDelete({
           _id: postId,
@@ -110,12 +110,6 @@ const resolvers = {
           price, 
           stock
         });
-
-        await User.findOneAndUpdate(
-          { _id: context.user._id },
-          { $addToSet: { products: product._id } }
-        );
-
         return product;
       }
       throw AuthenticationError;
