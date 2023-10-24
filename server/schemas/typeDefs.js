@@ -24,8 +24,8 @@ const typeDefs = `
     name: String!
     email: String
     donation: Float!
-    contractSignedAt: Date!
-    contractExpiration: Date!
+    contractSignedAt: String!
+    contractExpiration: String!
   }
 
   type Comment {
@@ -51,7 +51,7 @@ const typeDefs = `
 
   type Query {
     users: [User]
-    user(name: String!): User
+    user(email: String!): User
     sponsors: [Sponsor]
     sponsor(name: String!): Sponsor
     product(productId: ID!): Product
@@ -72,7 +72,8 @@ const typeDefs = `
     removePostComment(postId: ID!, commentId: ID!): Post
     addProductComment(productId: ID!, commentText: String!): Product
     removeProductComment(productId: ID!, commentId: ID!): Product
-    addSponsor(name: String!, email: String, donation: Float!, contractSignedAt: Date!, contractExpiration: Date!)
+    addSponsor(name: String!, email: String, donation: Float!, contractSignedAt: String!, contractExpiration: String!): Sponsor
+    removeSponsor(sponsorId: ID!): Sponsor
   }
 `;
 

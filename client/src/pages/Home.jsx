@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import {QUERY_USER } from "../utils/queries";
+import axios from 'axios'
+import { useEffect, useState } from 'react';
 
 import axios from "axios"
 
@@ -10,27 +12,19 @@ import { useEffect, useState } from "react";
 import FavoriteRacer from "../componets/HomepageComponets/FavoriteRacer";
 import DailyPost from "../componets/HomepageComponets/DailyPost";
 
+
+
+
 const Home = () => {
-  
-  const [news, setNews] = useState()
-
-
-  useEffect(() => {
-    
-    axios.get("/getNews")
-    .then((res) => {
-      setNews(res.data.articles)
-    })
-
-  }, [])
-
 
 
 
   return (
     <div className="main-home">
       <div className="daily-post">
-        <DailyPost newsArticles = {news}/>
+
+        <DailyPost/>
+
       </div>
       <div className="fav-racer">
 

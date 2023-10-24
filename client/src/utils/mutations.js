@@ -28,7 +28,23 @@ export const ADD_USER = gql`
 
 export const ADD_POST = gql`
   mutation addPost($title: String!, content: String!) {
-    addpost(title: $title, content: $content) {
+    addPost(title: $title, content: $content) {
+      _id
+      title
+      content
+      createdAt
+      comments {
+        _id
+        commentText
+      }
+      author
+    }
+  }
+`;
+
+export const REMOVE_POST = gql`
+  mutation removePost($postId: ID!) {
+    removePost(postId: $postId) {
       _id
       title
       content
@@ -43,8 +59,19 @@ export const ADD_POST = gql`
 `;
 
 export const ADD_POST_COMMENT = gql`
-  mutation addComment($postId: ID!, $commentText: String!) {
-    addComment(postId: $postId, commentText: $commentText) {
+  mutation addPostComment($postId: ID!, $commentText: String!) {
+    addPostComment(postId: $postId, commentText: $commentText) {
+      _id
+      commentText
+      commentAuthor
+      createdAt
+    }
+  }
+`;
+
+export const REMOVE_POST_COMMENT = gql`
+  mutation removePostComment($postId: ID!, $commentId: ID!) {
+    removePostComment(postId: $postId, commentId: $commentId) {
       _id
       commentText
       commentAuthor
@@ -62,8 +89,26 @@ export const ADD_PRODUCT = gql`
       price
       stock
       team
+      category      
+      createdAt
+      comments {
+        _id
+        commentText
+      }
+    }
+  }
+`;
+
+export const REMOVE_PRODUCT = gql`
+  mutation removeProduct($productId: ID!) {
+    removeProduct(productId: $productId) {
+      _id
+      name
+      description
+      price
+      stock
+      team
       category
-      author
       createdAt
       comments {
         _id
@@ -74,8 +119,19 @@ export const ADD_PRODUCT = gql`
 `;
 
 export const ADD_PRODUCT_COMMENT = gql`
-  mutation addComment($productId: ID!, $commentText: String!) {
-    addComment(productId: $productId, commentText: $commentText) {
+  mutation addProductComment($productId: ID!, $commentText: String!) {
+    addProductComment(productId: $productId, commentText: $commentText) {
+      _id
+      commentText
+      commentAuthor
+      createdAt
+    }
+  }
+`;
+
+export const REMOVE_PRODUCT_COMMENT = gql`
+  mutation removeProductComment($productId: ID!, $commentId: ID!) {
+    removeProductComment(productId: $productId, commentId: $commentId) {
       _id
       commentText
       commentAuthor

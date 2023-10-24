@@ -45,12 +45,6 @@ const productSchema = new Schema({
   category: {
     type: String
   },
-  author: [
-    {
-        type: Schema.Types.ObjectId,
-        ref: "User"
-    }
-  ],
   createdAt: {
     type: Date,
     default: Date.now,
