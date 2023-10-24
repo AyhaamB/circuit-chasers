@@ -1,5 +1,9 @@
 import ReactDOM from 'react-dom/client';
+
+
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+
+import axios from 'axios'
 
 import 'bootstrap/dist/css/bootstrap.css';
 import App from './App.jsx';
@@ -12,6 +16,9 @@ import Merch from './pages/Merch';
 import News from './pages/News.jsx';
 import NotFound from './pages/NotFound';
 import Donate from './pages/Donate.jsx';
+
+
+
 
 const router = createBrowserRouter([
   {

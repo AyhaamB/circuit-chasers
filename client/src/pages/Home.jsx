@@ -1,22 +1,35 @@
 import { Link } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import {QUERY_USER } from "../utils/queries";
+import axios from 'axios'
+import { useEffect, useState } from 'react';
 
 //componets 
 import FavoriteRacer from "../componets/HomepageComponets/FavoriteRacer";
 import DailyPost from "../componets/HomepageComponets/DailyPost";
 
-const Home = () => {
-  const { loading, data } = useQuery(QUERY_USER, {
-    fetchPolicy: "no-cache",
-  });
 
-  const matchupList = data?.user || [];
+
+
+const Home = () => {
+ 
+  const [news, setNews] = useState()
+
+  useEffect(() =>{
+  axios.get('https://newsapi.org/v2/everything?q=F1&apiKey=66637cfa720a42078121b0c9715aed47')
+  .then((res) =>{
+    setNews(res.data)
+    console.log(news)
+  })},[])
+
+
 
   return (
     <div className="main-home">
       <div className="daily-post">
+
         <DailyPost/>
+
       </div>
       <div className="fav-racer">
 
