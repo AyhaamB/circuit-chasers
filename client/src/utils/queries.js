@@ -3,8 +3,8 @@ import { gql } from '@apollo/client';
 
 
 export const QUERY_USER = gql`
-  query user($name: String!) {
-    user(name: $name) {
+  query user($email: String!) {
+    user(email: $email) {
       _id
       name
       email
@@ -17,8 +17,34 @@ export const QUERY_USER = gql`
   }
 `;
 
+export const QUERY_SPONSORS = gql`
+  query sponsors {
+    sponsors {
+      _id
+      name
+      email
+      donation
+      contractSignedAt
+      contractExpiration
+    }
+  }
+`;
+
+export const QUERY_SPONSOR = gql`
+  query sponsor($name: String!) {
+    sponsor(name: $name) {
+      _id
+      name
+      email
+      donation
+      contractSignedAt
+      contractExpiration
+    }
+  }
+`;
+
 export const QUERY_POSTS = gql`
-  query getPosts {
+  query posts {
     posts {
       _id
       title
@@ -29,8 +55,8 @@ export const QUERY_POSTS = gql`
   }
 `;
 
-export const QUERY_PRODUCT = gql`
-  query getProducts {
+export const QUERY_PRODUCTS = gql`
+  query products {
     products {
       _id
       name
@@ -40,12 +66,13 @@ export const QUERY_PRODUCT = gql`
       category
       team
       createdAt
+      
     }
   }
 `;
 
 export const QUERY_SINGLE_PRODUCT = gql`
-  query getSingleProduct($productId: ID!) {
+  query product($productId: ID!) {
     product(productId: $productId) {
       _id
       name
@@ -66,7 +93,7 @@ export const QUERY_SINGLE_PRODUCT = gql`
 `;
 
 export const QUERY_SINGLE_POST = gql`
-  query getSinglePost($postId: ID!) {
+  query post($postId: ID!) {
     post(postId: $postId) {
       _id
       title
