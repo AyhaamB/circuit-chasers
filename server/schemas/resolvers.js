@@ -4,10 +4,10 @@ const { signToken, AuthenticationError } = require('../utils/auth');
 const resolvers = {
   Query: {
     users: async () => {
-      return User.find().populate('posts products');
+      return User.find().populate('posts');
     },
-    user: async (parent, { name }) => {
-      return User.findOne({ name }).populate('posts products');
+    user: async (parent, { email }) => {
+      return User.findOne({ email }).populate('posts');
     },
     posts: async (parent, { author }) => {
       const params = author ? { author } : {};
@@ -16,9 +16,8 @@ const resolvers = {
     post: async (parent, { postId }) => {
       return Post.findOne({ _id: postId });
     },
-    products: async (parent, { author }) => {
-      const params = author ? { author } : {};
-      return Product.find(params).sort({ createdAt: -1 }).populate('comments');
+    products: async () => {      
+      return Product.find().sort({ createdAt: -1 }).populate('comments');
     },
     product: async (parent, { productId }) => {
       return Product.findOne({ _id: productId });
@@ -32,7 +31,7 @@ const resolvers = {
     },
     me: async (parent, args, context) => {
       if (context.user) {
-        return User.findOne({ _id: context.user._id }).populate('posts products');
+        return User.findOne({ _id: context.user._id }).populate('posts');
       }
       throw AuthenticationError;
     },
@@ -44,6 +43,15 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
+    addSponsor: async (parent, { name, email, donation, contractSignedAt, contractExpiration }) => {
+      const sponsor = await Sponsor.create({ name, email, donation, contractSignedAt, contractExpiration  });
+      return sponsor;
+    },
+    removeSponsor: async (parent, { sponsorId }, context) => {      
+        const sponsor = await Sponsor.findOneAndDelete({_id: sponsorId});
+       
+        return sponsor;
+      },
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
 
@@ -61,22 +69,38 @@ const resolvers = {
 
       return { token, user };
     },
-    addPost: async (parent, { content }, context) => {
+    addPost: async (parent, { title, content }, context) => {
       if (context.user) {
         const post = await Post.create({
-          content,
-          author: context.user.name,
+          title,
+          content
         });
 
         await User.findOneAndUpdate(
           { _id: context.user._id },
           { $addToSet: { posts: post._id } }
         );
-
-        return product;
+          
+        return post;
       }
       throw AuthenticationError;
       ('You need to be logged in!');
+    },
+    removePost: async (parent, { postId }, context) => {
+      if (context.user) {
+        const post = await Post.findOneAndDelete({
+          _id: postId,
+          author: context.user._id,
+        });
+
+        await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $pull: { posts: post._id } }
+        );
+
+        return post;
+      }
+      throw AuthenticationError;
     },
     addProduct: async (parent, { name, description, price, stock }, context) => {
       if (context.user) {
@@ -84,16 +108,9 @@ const resolvers = {
           name,
           description,
           price, 
-          stock,
-          author: context.user.name,
+          stock
         });
-
-        await User.findOneAndUpdate(
-          { _id: context.user._id },
-          { $addToSet: { products: product._id } }
-        );
-
-        return thought;
+        return product;
       }
       throw AuthenticationError;
       ('You need to be logged in!');
@@ -101,14 +118,8 @@ const resolvers = {
     removeProduct: async (parent, { productId }, context) => {
       if (context.user) {
         const product = await Product.findOneAndDelete({
-          _id: productId,
-          author: context.user.name,
+          _id: productId
         });
-
-        await User.findOneAndUpdate(
-          { _id: context.user._id },
-          { $pull: { products: product._id } }
-        );
 
         return product;
       }
@@ -200,6 +211,7 @@ const resolvers = {
     },
 }
 };
+
 
 
 module.exports = resolvers;

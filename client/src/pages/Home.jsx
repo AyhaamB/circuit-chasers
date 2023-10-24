@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 
 //componets 
 import FavoriteRacer from "../componets/HomepageComponets/FavoriteRacer";
+import DailyPost from "../componets/HomepageComponets/DailyPost";
 
 
 
@@ -26,8 +27,9 @@ const Home = () => {
   return (
     <div className="main-home">
       <div className="daily-post">
-        <p>Top Post</p>
-       
+
+        <DailyPost/>
+
       </div>
       <div className="fav-racer">
 
