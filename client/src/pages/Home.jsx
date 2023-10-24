@@ -5,13 +5,12 @@ import {QUERY_USER } from "../utils/queries";
 //componets 
 import FavoriteRacer from "../componets/HomepageComponets/FavoriteRacer";
 import DailyPost from "../componets/HomepageComponets/DailyPost";
+import OtherStoires from "../componets/HomepageComponets/OtherStoires";
 
 const Home = () => {
   const { loading, data } = useQuery(QUERY_USER, {
     fetchPolicy: "no-cache",
   });
-
-  const matchupList = data?.user || [];
 
   return (
     <div className="main-home">
@@ -23,7 +22,11 @@ const Home = () => {
         <FavoriteRacer/>
       </div>
       <div className="other-stories">
-        <p>Other Stories</p>
+        <OtherStoires/>
+        <OtherStoires/>
+        <OtherStoires/>
+        <OtherStoires/>
+        <OtherStoires/>
       </div>
       <div className="join-disc">
         <p>Join The Discussion</p>

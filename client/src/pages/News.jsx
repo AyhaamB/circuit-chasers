@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import { QUERY_USER } from "../utils/queries";
+import Article from "../componets/NewsComponents/Article";
 
 const News = () => {
   const { loading, data } = useQuery(QUERY_USER, {
@@ -10,20 +11,20 @@ const News = () => {
   return (
     <div className="main-news">
       <div className="post-container">
-      <div className="news-title">
+        <div className="news-title">
           <h2>All News</h2>
         </div>
         <div className="news-post">
-          <p>This is a news article placeholder</p>
+          <Article />
         </div>
         <div className="news-post">
-          <p>This is a news article placeholder</p>
+          <Article />
         </div>
         <div className="news-post">
-          <p>This is a news article placeholder</p>
+          <Article />
         </div>
         <div className="news-post">
-          <p>This is a news article placeholder</p>
+          <Article />
         </div>
       </div>
     </div>
