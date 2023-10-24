@@ -1,6 +1,9 @@
 import React from 'react';
 
 const Cart = ({ cartItems, handleCheckout }) => {
+
+    const totalValue = cartItems.reduce((total, item) => total + item.price, 0);
+
   return (
     <div>
       <h2>Shopping Cart</h2>
@@ -9,6 +12,7 @@ const Cart = ({ cartItems, handleCheckout }) => {
           <li key={index}>{item.name} - ${item.price}</li>
         ))}
       </ul>
+      <p>Total: ${totalValue}</p>
       <button onClick={handleCheckout}>Proceed to Checkout</button>
     </div>
   );

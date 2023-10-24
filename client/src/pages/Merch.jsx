@@ -3,6 +3,8 @@ import { useQuery } from "@apollo/client";
 import { QUERY_USER } from "../utils/queries";
 import React, { useState } from "react";
 import Product from "../componets/MerchComponets/Product";
+import Cart from "../componets/MerchComponets/Cart";
+import Payment from "../componets/MerchComponets/Payment"
 
 const Merch = () => {
   const { loading, data } = useQuery(QUERY_USER, {
@@ -10,9 +12,19 @@ const Merch = () => {
   });
 
   const [cartItems, setCartItems] = useState([]);
+  const [isCheckout, setIsCheckout] = useState(false);
 
   const addToCart = (product) => {
     setCartItems([...cartItems, product]);
+  };
+
+  const handleCheckout = () => {
+    setIsCheckout(true);
+  };
+
+  const handlePaymentSuccess = () => {
+    // You can implement actions after a successful payment here
+    console.log('Payment was successful.');
   };
 
   return (
@@ -31,12 +43,11 @@ const Merch = () => {
 
       </div>
       <div className="user-cart">
-        <p>Users Cart</p>
-        <ul>
-          {cartItems.map((item, index) => (
-            <li key={index}>{item.name} - ${item.price}</li>
-          ))}
-        </ul>
+      {isCheckout ? (
+        <Payment cartItems={cartItems} handlePaymentSuccess={handlePaymentSuccess} />
+      ) : (
+        <Cart cartItems={cartItems} handleCheckout={handleCheckout} />
+      )}
       </div>
     </div>
   );
