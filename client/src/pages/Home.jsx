@@ -1,12 +1,9 @@
 import { Link } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import {QUERY_USER } from "../utils/queries";
-import axios from 'axios'
-import { useEffect, useState } from 'react';
 
-import axios from "axios"
 
-import { useEffect, useState } from "react";
+
 
 //componets 
 import FavoriteRacer from "../componets/HomepageComponets/FavoriteRacer";

@@ -1,6 +1,3 @@
-import { Link } from "react-router-dom";
-import { useQuery } from "@apollo/client";
-import { QUERY_USER } from "../utils/queries";
 import { useEffect, useState,} from "react";
 import axios from "axios";
 import convert from 'xml-js'
