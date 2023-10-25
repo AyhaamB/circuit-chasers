@@ -40,7 +40,7 @@ SOFTWARE.
 
 
 # CONTACT
-* Github: [LeopoldoGurgel, jesk3r, AyhaamB](https://github.com/LeopoldoGurgel, jesk3r, AyhaamB)
+* Github: [LeopoldoGurgel](https://github.com/LeopoldoGurgel), [jesk3r](https://github.com/jesk3r), [AyhaamB](https://github.com/AyhaamB)
 * E-mail: leopoldogbp@gmail.com, DheerajThind@gmail.com, ayh132@gmail.com
 * Linkedin https://www.linkedin.com/in/leopoldo-gurgel-24a404284/
 
