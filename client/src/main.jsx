@@ -16,6 +16,7 @@ import Merch from './pages/Merch';
 import News from './pages/News.jsx';
 import NotFound from './pages/NotFound';
 import Donate from './pages/Donate.jsx';
+import Login from './pages/Login.jsx';
 
 
 
@@ -50,6 +51,10 @@ const router = createBrowserRouter([
       }, {
         path: '/donate',
         element: <Donate/>
+      },
+      {
+        path: '/login',
+        element: <Login/>
       }
     ],
   },

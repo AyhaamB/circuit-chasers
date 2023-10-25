@@ -1,8 +1,12 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function Header({toggleLoginOpen}) {
+  const navigate = useNavigate();
 
-
+  const handleLoginClick = () => {
+    navigate('/login');
+  };
 
   return (
     <nav className="navbar navbar-expand-lg">
@@ -95,7 +99,7 @@ export default function Header({toggleLoginOpen}) {
           </form>
         </div>
         <div>
-            <button className="login-btn btn btn-dark" type="button" onClick={toggleLoginOpen} >
+            <button className="login-btn btn btn-dark" type="button" onClick={handleLoginClick} >
               Login/Sign Up
             </button>
         </div>
