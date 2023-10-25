@@ -49,11 +49,8 @@ const Payment = ({ cartItems }) => {
       console.error(result.error.message);
       setProcessing(false);
     } else {
-      // Payment succeeded
-      if (result.paymentIntent.status === 'succeeded') {
-
-        console.log('Payment succeeded');
-      }
+      // const token = result.token;
+      console.log('Payment succeeded');
     }
   };
 

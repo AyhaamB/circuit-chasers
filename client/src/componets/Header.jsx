@@ -31,25 +31,25 @@ export default function Header({toggleLoginOpen}) {
         <div className="collapse navbar-collapse" id="navbarNavDropdown">
           <ul className="navbar-nav">
             <li className="nav-item">
+              <a className="nav-link" href="/news">
+                News
+              </a>
+            </li>
+            <li className="nav-item">
               <a className="nav-link" aria-current="page" href="/community">
                 Community
               </a>
             </li>
             <li className="nav-item">
               <a className="nav-link" href="/browse">
-                Browse
+                Season
               </a>
             </li>
             <li className="nav-item">
               <a className="nav-link" href="/merch">
-                Merch
+                Store
               </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="/news">
-                News
-              </a>
-            </li>
+            </li>    
             <li className="nav-item">
               <a className="nav-link" href="/donate">
                 Donate
