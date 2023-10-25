@@ -14,7 +14,7 @@ const Merch = () => {
     fetchPolicy: "no-cache",
   });
 
-  const [cartItems, setCartItems] = useState([]);
+  const [cartItems, setCartItems] = useState([]); 
   const [isCheckout, setIsCheckout] = useState(false);
 
   const addToCart = (product) => {
@@ -22,7 +22,9 @@ const Merch = () => {
   };
 
   const handleCheckout = () => {
-    setIsCheckout(true);
+    if(cartItems.length > 0) {
+      setIsCheckout(true);
+    }
   };
 
   const handleDelete = (index) => {

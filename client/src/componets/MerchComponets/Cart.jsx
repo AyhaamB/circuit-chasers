@@ -2,24 +2,24 @@ import React from 'react';
 import { FaTrash } from 'react-icons/fa';
 
 
-const Cart = ({ cartItems, handleCheckout }) => {
+const Cart = ({ cartItems, handleCheckout, handleDelete }) => {
 
     const totalValue = cartItems.reduce((total, item) => total + item.price, 0);
 
   return (
-    <div>
+    <div >
       <h2>Shopping Cart</h2>
       <ul>
         {cartItems.map((item, index) => (
           <li key={index}>{item.name} - ${item.price}
-          <button onClick={() => handleDelete(index)}>
+          <button className="btn btn-block btn-danger" onClick={() => handleDelete(index)}>
               <FaTrash />
             </button></li>
         ))}
       </ul>
       <p>Total: ${totalValue}</p>
 
-      <button onClick={handleCheckout}>Proceed to Checkout</button>
+      <button className="btn btn-block btn-dark" onClick={handleCheckout}>Proceed to Checkout</button>
     </div>
   );
 };

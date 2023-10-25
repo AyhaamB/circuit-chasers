@@ -5,6 +5,7 @@ import {QUERY_POSTS, QUERY_USER } from "../utils/queries";
 
 
 
+
 //componets 
 import FavoriteRacer from "../componets/HomepageComponets/FavoriteRacer";
 import DailyPost from "../componets/HomepageComponets/DailyPost";
