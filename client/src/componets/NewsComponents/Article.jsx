@@ -1,12 +1,18 @@
-export default function Article(props) {
+export default function Article({ news }) {
   return (
     <>
-      <div className="article-image"></div>
-      <div className="article-info">
-        <h2 className="article-title">Max Verstappen Wins Again</h2>
-        <p>Max continues to display incredible form and shows no sins of slowing. Will any of the other competitors catch up?</p>
-        <p className="article-created">Posted on: 10/23/23</p>
-      </div>
+      {news.map((news) => (
+        <div className="news-post">
+            <div className="article-image">
+                <img className="news-image" src={news.urlToImage}></img>
+            </div>
+            <div className="news-content">
+              <a href={news.url}>
+                <h2 className='article-title'>{news.title}</h2></a>
+              <p>{news.description}</p>
+            </div>
+        </div>
+      ))}
     </>
   );
 }

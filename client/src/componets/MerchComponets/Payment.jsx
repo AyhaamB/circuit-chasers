@@ -58,7 +58,7 @@ const Payment = ({ cartItems }) => {
   };
 
   return (
-    <div>
+    <div className='payment-main'>
       <h2>Payment Information</h2>
       <Elements stripe={stripePromise}>
         <div>
