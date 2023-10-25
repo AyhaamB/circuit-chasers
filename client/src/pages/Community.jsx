@@ -11,7 +11,7 @@ const Community = () => {
     <div className="main-disc">
       <div className="post-container">
         <div className="disc-title">
-          <h2>Trending Today</h2>
+          <h2>Posts From Our Users</h2>
         </div>
         <Post posts={posts} />
       </div>

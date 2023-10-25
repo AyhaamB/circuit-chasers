@@ -5,7 +5,7 @@ body {
     Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
   font-size: 16px;
   color: #1a1a1a;
-  background-color: #EAFDF8 !important;
+  background-color: lightgray !important;
 }
 
 .navbar {
@@ -22,34 +22,39 @@ body {
   border-radius: 10px;
 }
 
+/* .post-container {
+  border: solid;
+} */
+
 .daily-post {
   height: 400px;
-  background-color: black;
   position: relative;
+  background-color: black;
   box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  display: grid;
+  grid-template-rows: 50% 50%;
   margin: 25px 25px 0px 25px;
-  background-image: url('./assets/images/main-news-test.jpeg');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
 }
 
+.main-article-image {
+  max-width: 100%;
+  max-height: 100%;
+  z-index: -1;
+}
+
 .top-news-heading {
   height: 100%;
+  position: relative;
 }
 
-.top-news-desc {
+/* .top-news-desc {
   display: none;
-}
+} */
 
-.dailypost-main {
-  height: 100%;
-}
-
-.dailypost-main a {
+.top-news-title a {
   text-decoration: none;
 }
 
@@ -63,7 +68,7 @@ body {
 
 .top-news-desc p {
   position: relative;
-  bottom: 85px;
+  bottom: -125px;
   height: 75px;
   background-color: #1D1D1D;
   color: lightgray;
@@ -79,6 +84,7 @@ body {
   background-color: #1D1D1D;
   color: #EAFDF8;
   padding: 5px;
+  max-height: 80px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -95,11 +101,22 @@ body {
   overflow: scroll;
 }
 
+.other-stories a {
+  text-decoration: none;
+}
+
+.other-title:hover {
+  color: #F9A23E;
+}
+
 .other-image {
-  background-image: url('./assets/images/main-news-test.jpeg');
+  background-color: black;
   background-size: contain;
   background-repeat: no-repeat;
-  max-height: 200px;
+  max-height: 100%;
+  max-width: 100%;
+  background-position: center;
+  margin: 5px;
 }
 
 .other-title {
@@ -161,10 +178,12 @@ body {
 }
 
 .disc-post {
-  height: 150px;
+  min-height: 150px;
+  max-height: 250px;
   background-color: #edf7fa;
   position: relative;
   margin: 25px;
+  padding: 10px;
   box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
   display: flex;
   justify-content: center;
@@ -207,7 +226,10 @@ body {
 }
 
 .user-cart {
-  height: 300px;
+
+  min-height: 300px;
+  max-height: 500px;
+
   background-color: #edf7fa;
   position: relative;
   margin: 25px;
@@ -215,9 +237,9 @@ body {
   display: flex;
 }
 
-.main-news {
-  display: grid;
-  grid-template-columns: 100%;
+.cart-items-container {
+  overflow: scroll;
+  max-height: 350px;
 }
 
 .news-post {
@@ -230,15 +252,76 @@ body {
   grid-template-columns: 20% 80%;
 }
 
-.article-info {
+.cart-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
   padding: 10px;
+  background-color: white;
+}
+
+.total-price {
+  display: flex;
+  justify-content: space-between
+}
+
+.total-price h2 {
+  padding: 5px;
+}
+
+.payment-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px;
+  width: 100%;
+  background-color: white;
+}
+
+.news-image {
+  max-width: 100%;
+  max-height: 150px;
+}
+
+.cart-items{
+  font-weight: bolder;
+  padding: 10px;
+  margin: 10px;
+  font-size: 20px;
+}
+
+.cart-items li {
+  box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
+  padding: 10px;
+  margin: 10px;
 }
 
 .article-image {
-  background-image: url('./assets/images/main-news-test.jpeg');
-  background-size: cover;
-  min-width: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
   max-height: 150px;
+}
+
+.news-content {
+  padding: 10px;
+}
+
+.news-content a {
+  text-decoration: none;
+  color: black;
+}
+
+.article-title:hover {
+  text-decoration: none;
+  color: #F9A23E;
+}
+
+.article-info {
+  padding: 10px;
 }
 
 .article-created {
@@ -283,7 +366,8 @@ body {
 }
 
 .prod-listing {
-  height: 150px;
+  min-height: 175px;
+  max-height: 250px;
   background-color: white;
   position: relative;
   margin: 25px;
@@ -296,14 +380,14 @@ body {
  display: grid;
  grid-template-columns: 70% 30%;
  padding: 20px;
+ grid-gap: 10px;
 }
 
 .prod-list-image {
-  background-image: url('./assets/images/mercedes-hat.jpg');
   background-size: contain;
   background-repeat: no-repeat;
-  min-height: 150px;
-  max-height: 150px;
+  min-height: 175px;
+  max-height: 175px;
   min-width: 250px;
 }
 

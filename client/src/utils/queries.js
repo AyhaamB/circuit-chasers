@@ -17,6 +17,17 @@ export const QUERY_USER = gql`
   }
 `;
 
+export const QUERY_NEWS = gql`
+  query news {
+    news {
+      title
+      description
+      url
+      urlToImage
+    }
+  }
+`;
+
 export const QUERY_SPONSORS = gql`
   query sponsors {
     sponsors {
