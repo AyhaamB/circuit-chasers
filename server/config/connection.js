@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+require('dotenv').config();
 //JPYHO91uHZbIrRoi
 //mongodb+srv://Dheeraj:JPYHO91uHZbIrRoi@cluster0.kmlkcyb.mongodb.net/?retryWrites=true&w=majority
 console.log(process.env.MONGODB_URI)
