@@ -38,7 +38,7 @@ const Browse = () => {
       
       let resJson = JSON.parse(result1)
 
-      // console.log(resJson.MRData.StandingsTable.StandingsList.DriverStanding)
+      console.log(resJson.MRData.StandingsTable.StandingsList.DriverStanding)
 
       setRacer(resJson.MRData.StandingsTable.StandingsList.DriverStanding)
 
@@ -54,7 +54,7 @@ const Browse = () => {
       
       let resJson = JSON.parse(result1)
 
-      // console.log(resJson.MRData.RaceTable.Race)
+      console.log(resJson.MRData.RaceTable.Race)
 
       setCircuit(resJson.MRData.RaceTable.Race)
       
@@ -84,21 +84,23 @@ const Browse = () => {
   
   }, [])
 
+  
 
-  if(Teams === undefined){
-    return (<></>)
-  }
-
-  return (
-    <div className="main-browse">
+  if(Teams && RaceSchedule && Racer && Circuits){
+   
+   return(<div className="main-browse">
       <div className="post-container">
        <CatagoryCardComponet title="Schedule" desc= {RaceSchedule.RaceName._text}  />
        <CatagoryCardComponet title="Racer" desc={Racer[0].Driver.GivenName._text + " "+ Racer[0].Driver.FamilyName._text}  />
        <CatagoryCardComponet title="Circuits" desc={Circuits[(parseInt(RaceSchedule._attributes.round) - 1)].Circuit.CircuitName._text}  />
        <CatagoryCardComponet title="Teams" desc={Teams[0].Constructor.Name._text}  />        
       </div>
-    </div>
-  );
+    </div>)
+
+  }else{
+    return <></>
+  }
+
 };
 
 export default Browse;

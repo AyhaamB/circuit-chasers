@@ -23,7 +23,7 @@ const startApolloServer = async () => {
   app.use(express.urlencoded({ extended: true }));
   app.use(express.json());
   
-  // app.use('/graphql', expressMiddleware(server));
+  app.use('/graphql', expressMiddleware(server));
 
   // if we're in production, serve client/dist as static assets
 
