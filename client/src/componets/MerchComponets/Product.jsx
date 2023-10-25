@@ -9,6 +9,7 @@ export default function Product({ product, addToCart }) {
 
   return (
     <>
+
       <div className="prod-listing">
         <div className="prod-info">
           <h2 className="prod-title">{product.name}</h2>
@@ -23,6 +24,7 @@ export default function Product({ product, addToCart }) {
           </button>
         </div>
         <div className="prod-list-image"></div>
+
       </div>
     </>
   );

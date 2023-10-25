@@ -222,8 +222,10 @@ body {
 }
 
 .user-cart {
+
   min-height: 300px;
   max-height: 500px;
+
   background-color: #edf7fa;
   position: relative;
   margin: 25px;

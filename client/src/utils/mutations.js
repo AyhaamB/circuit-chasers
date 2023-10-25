@@ -38,7 +38,7 @@ export const ADD_NEWS = gql`
 `;
 
 export const ADD_POST = gql`
-  mutation addPost($title: String!, content: String!) {
+  mutation addPost($title: String!, $content: String!) {
     addPost(title: $title, content: $content) {
       _id
       title

@@ -1,6 +1,7 @@
 import React from "react";
 
-const Cart = ({ cartItems, handleCheckout }) => {
+
+const Cart = ({ cartItems, handleCheckout, handleDelete }) => {
   const totalValue = cartItems.reduce((total, item) => total + item.price, 0).toFixed(2);
 
   return (
@@ -10,9 +11,10 @@ const Cart = ({ cartItems, handleCheckout }) => {
         <div className="cart-items-container">
         <ul className="cart-items" style={{ listStyleType: "none" }}>
           {cartItems.map((item, index) => (
-            <li key={index}>
-              {item.name} - ${item.price}
-            </li>
+            <li key={index}>{item.name} - ${item.price}
+          <button className="btn btn-block btn-danger" onClick={() => handleDelete(index)}>
+          &times;
+            </button></li>
           ))}
         </ul>
         </div>
@@ -21,6 +23,7 @@ const Cart = ({ cartItems, handleCheckout }) => {
         <h2>Total: ${totalValue}</h2>
         <button className="btn btn-dark" onClick={handleCheckout}>Proceed to Checkout</button>
       </div>
+
     </div>
   );
 };
