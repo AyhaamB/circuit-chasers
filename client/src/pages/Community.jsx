@@ -15,8 +15,11 @@ const Community = () => {
         </div>
         <Post posts={posts} />
       </div>
+
       <div className="create-post">
-        <p>Create Post</p>
+        <a href="/login">
+          <p>Login To Create Post</p>
+        </a>
       </div>
     </div>
   );
