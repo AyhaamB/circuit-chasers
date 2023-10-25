@@ -11,7 +11,7 @@ const RacerPage = () =>{
     const [Racer, setRacer] = useState()
 
     useEffect(() => {
-      axios.get("http://ergast.com/api/f1/current/driverStandings",  {params: { format: "xml" }})
+      axios.get("https://ergast.com/api/f1/current/driverStandings",  {params: { format: "xml" }})
     .then((res) => {
       
 

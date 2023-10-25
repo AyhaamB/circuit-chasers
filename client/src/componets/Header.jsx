@@ -10,7 +10,7 @@ export default function Header({toggleLoginOpen}) {
         <a className="navbar-brand" href="/">
           <img
             className="main-logo"
-            src="./src/assets/images/circuit-chasers-logo.png"
+            src="/circuit-chasers-logo.png"
           ></img>
         </a>
         <button

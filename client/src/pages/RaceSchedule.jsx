@@ -9,7 +9,7 @@ const RacePage = () =>{
     const [Circuits, setCircuit] = useState()
 
     useEffect(() => {
-      axios.get("http://ergast.com/api/f1/current",  {params: { format: "xml" }})
+      axios.get("https://ergast.com/api/f1/current",  {params: { format: "xml" }})
     .then((res) => {
       
 
@@ -34,7 +34,7 @@ const RacePage = () =>{
     return(
       
 
-      <div className="d-flex m-5 flex-wrap justify-content-around"> 
+      <div className="schedule-main m-5"> 
 
       {Circuits.map((circuit) => {
         return <ScheduleCard Circuit = {circuit} ></ScheduleCard>
