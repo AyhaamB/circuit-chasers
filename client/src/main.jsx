@@ -16,7 +16,12 @@ import Merch from './pages/Merch';
 import News from './pages/News.jsx';
 import NotFound from './pages/NotFound';
 import Donate from './pages/Donate.jsx';
-import Login from './pages/Login.jsx';
+
+import RaceSchedule from './pages/RaceSchedule.jsx'
+import RacerPage from './pages/Racer.jsx';
+import TeamsPage from './pages/TeamsPage.jsx';
+import CircuitPage from './pages/CircuitsPage.jsx'
+
 
 
 
@@ -51,10 +56,25 @@ const router = createBrowserRouter([
       }, {
         path: '/donate',
         element: <Donate/>
+
       },
       {
         path: '/login',
         element: <Login/>
+
+      }, {
+        path: '/raceschedule',
+        element: <RaceSchedule/>
+      }, {
+        path: '/racers',
+        element: <RacerPage/>
+      }, {
+        path: '/teams',
+        element: <TeamsPage/>
+      },{
+        path: '/circuits',
+        element: <CircuitPage/>
+
       }
     ],
   },
