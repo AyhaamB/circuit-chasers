@@ -156,13 +156,17 @@ body {
   color: black;
 }
 
-.random-post-title {
+.random-post-header {
   padding: 10px;
   border-bottom: solid;
   margin-right: 20px;
   margin-left: 20px;
   display: flex;
   justify-content: center;
+}
+
+.random-post-title {
+  font-weight: bolder;
 }
 
 .random-post-content {
