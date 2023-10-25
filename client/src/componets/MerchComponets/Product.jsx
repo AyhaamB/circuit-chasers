@@ -17,7 +17,7 @@ export default function Product({ product, addToCart }) {
         <h2>${product.price}</h2>
         <p>{product.description}</p>
         <p>In Stock: {product.stock}</p>
-        <button onClick={handleAddToCart}>Add to Cart</button>
+        <button className="btn btn-block btn-dark" onClick={handleAddToCart}>Add to Cart</button>
       </div>
       <div className="prod-list-image"></div>
       </div>

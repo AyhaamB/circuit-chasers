@@ -5,13 +5,16 @@ import React, { useState } from "react";
 import Product from "../componets/MerchComponets/Product";
 import Cart from "../componets/MerchComponets/Cart";
 import Payment from "../componets/MerchComponets/Payment"
+import { FaTrash } from 'react-icons/fa';
+
+
 
 const Merch = () => {
   const { loading, data } = useQuery(QUERY_USER, {
     fetchPolicy: "no-cache",
   });
 
-  const [cartItems, setCartItems] = useState([]);
+  const [cartItems, setCartItems] = useState([]); 
   const [isCheckout, setIsCheckout] = useState(false);
 
   const addToCart = (product) => {
@@ -19,8 +22,15 @@ const Merch = () => {
   };
 
   const handleCheckout = () => {
-    setIsCheckout(true);
+    if(cartItems.length > 0) {
+      setIsCheckout(true);
+    }
   };
+
+  const handleDelete = (index) => {
+    const updatedCartItems = [...cartItems.slice(0, index), ...cartItems.slice(index + 1)];
+    setCartItems(updatedCartItems);
+  }
 
   const handlePaymentSuccess = () => {
     // You can implement actions after a successful payment here
@@ -43,7 +53,7 @@ const Merch = () => {
       {isCheckout ? (
         <Payment cartItems={cartItems} handlePaymentSuccess={handlePaymentSuccess} />
       ) : (
-        <Cart cartItems={cartItems} handleCheckout={handleCheckout} />
+        <Cart cartItems={cartItems} handleCheckout={handleCheckout} handleDelete={handleDelete} />
       )}
       </div>
     </div>

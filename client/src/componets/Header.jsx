@@ -1,4 +1,9 @@
-export default function Header() {
+import React from 'react';
+
+export default function Header({toggleLoginOpen}) {
+
+
+
   return (
     <nav className="navbar navbar-expand-lg">
       <div className="container-fluid">
@@ -90,7 +95,7 @@ export default function Header() {
           </form>
         </div>
         <div>
-            <button className="login-btn btn btn-dark" type="button">
+            <button className="login-btn btn btn-dark" type="button" onClick={toggleLoginOpen} >
               Login/Sign Up
             </button>
         </div>
