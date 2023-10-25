@@ -24,7 +24,7 @@ const Post = () => {
         </div>
       </div>
       <div className="join-disc">
-        <p>Create Post</p>
+        <p>Login To Create A Post</p>
       </div>
     </div>
   );
