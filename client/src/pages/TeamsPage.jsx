@@ -11,7 +11,7 @@ const TeamsPage = () =>{
     const [Teams, setTeam] = useState()
 
     useEffect(() => {
-        axios.get("http://ergast.com/api/f1/current/constructorStandings",  {params: { format: "xml" }})
+        axios.get("https://ergast.com/api/f1/current/constructorStandings",  {params: { format: "xml" }})
         .then((res) => {
           
     
