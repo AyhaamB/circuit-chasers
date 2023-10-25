@@ -1,21 +1,25 @@
-export default function DailyPost(props) {
-  
-  console.log(props.newsArticles)
+export default function DailyPost({ news }) {
+  if (!news || news.length === 0) {
+    return <div>Loading...</div>;
+  }
+
+  const firstNews = news[0];
+  console.log(firstNews)
+
+  const backgroundStyle = {
+    backgroundImage: `url("${firstNews.urlToImage}")`,
+  };
 
   return (
     <>
-      <div className="dailypost-main">
-        <div className="top-news-heading">
-          <a href="#">
-          <h2 className="top-news-title">The Gran Prix is Here!</h2>
+      <div style={backgroundStyle}className="daily-post" key={firstNews.title}>
+        <div className="top-news-title">
+          <a href={firstNews.url}>
+            <h2 className="top-news-title">{firstNews.title}</h2>
           </a>
         </div>
         <div className="top-news-desc">
-          <p>
-            The best racers around the world come together to battle it out in
-            the newest edition of the world gran prix. Stay in the loop with all
-            the latest updates here!
-          </p>
+          <p>{firstNews.description}</p>
         </div>
       </div>
     </>

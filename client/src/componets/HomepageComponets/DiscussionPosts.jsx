@@ -1,5 +1,5 @@
 export default function DiscussionPost({ posts }) {
-  console.log("Posts received in FavoriteRacer:", posts);
+  
   const randomIndex = Math.floor(Math.random() * posts.length);
   const randomPost = posts[randomIndex];
   return (
