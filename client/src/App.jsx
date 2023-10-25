@@ -10,7 +10,7 @@ const stripePromise = loadStripe('pk_test_51O4lpjH0VRa1NCtjpHyymJ7hdaoMtdDBjOs9r
 //import header
 import Header from './componets/Header.jsx'
 import Footer from './componets/Footer.jsx'
-import Login from './componets/Login.jsx'
+import Login from './pages/Login.jsx'
 
 
 const client = new ApolloClient({
