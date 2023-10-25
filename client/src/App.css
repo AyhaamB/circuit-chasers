@@ -22,6 +22,10 @@ body {
   border-radius: 10px;
 }
 
+.post-container {
+  border: solid;
+}
+
 .daily-post {
   height: 400px;
   background-color: black;
@@ -279,7 +283,7 @@ body {
 }
 
 .prod-listing {
-  height: 150px;
+  height: 175px;
   background-color: white;
   position: relative;
   margin: 25px;
@@ -298,8 +302,8 @@ body {
   background-image: url('./assets/images/mercedes-hat.jpg');
   background-size: contain;
   background-repeat: no-repeat;
-  min-height: 150px;
-  max-height: 150px;
+  min-height: 175px;
+  max-height: 175px;
   min-width: 250px;
 }
 

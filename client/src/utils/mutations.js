@@ -26,6 +26,17 @@ export const ADD_USER = gql`
   }
 `;
 
+export const ADD_NEWS = gql`
+  mutation addNews($title: String!, $description: String!, $url: String!, $urlToImage: String!) {
+    addNews(title: $title, description: $description, url: $url, urlToImage: $urlToImage) {
+       title
+       description
+       url
+       urlToImage
+    }
+  }
+`;
+
 export const ADD_POST = gql`
   mutation addPost($title: String!, content: String!) {
     addPost(title: $title, content: $content) {

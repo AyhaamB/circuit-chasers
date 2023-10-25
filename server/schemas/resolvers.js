@@ -1,8 +1,11 @@
-const { User, Sponsor, Product, Post } = require('../models');
+const { User, Sponsor, Product, Post, News } = require('../models');
 const { signToken, AuthenticationError } = require('../utils/auth');
 
 const resolvers = {
   Query: {
+    news: async () => {
+      return News.find();
+    },
     users: async () => {
       return User.find().populate('posts');
     },
@@ -42,6 +45,10 @@ const resolvers = {
       const user = await User.create({ name, email, password });
       const token = signToken(user);
       return { token, user };
+    },
+    addNews: async (parent, { title, description, url, urlToImage }) => {
+      const news = await News.create({ title, description, url, urlToImage });
+      return { news };
     },
     addSponsor: async (parent, { name, email, donation, contractSignedAt, contractExpiration }) => {
       const sponsor = await Sponsor.create({ name, email, donation, contractSignedAt, contractExpiration  });
