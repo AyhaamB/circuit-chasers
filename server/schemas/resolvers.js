@@ -73,10 +73,11 @@ const resolvers = {
       }
 
       const token = signToken(user);
-
+      console.log(user, token)
       return { token, user };
     },
     addPost: async (parent, { title, content }, context) => {
+      console.log(context, 'hello')
       if (context.user) {
         const post = await Post.create({
           title,

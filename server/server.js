@@ -2,13 +2,11 @@ const express = require('express');
 const { ApolloServer } = require('@apollo/server');
 const { expressMiddleware } = require('@apollo/server/express4');
 const { calculateTotalAmount } = require('./utils/helpers')
+const { authMiddleware } = require('./utils/auth');
 const path = require('path');
 
 const { typeDefs, resolvers } = require('./schemas');
 const db = require('./config/connection');
-
-
-// const NewsStuff = require('./F1News/f1-01-news.json');
 
 
 const stripe = require('stripe')('sk_test_51O4lpjH0VRa1NCtjVGpovHjFQyqeqoQ9mCzM5hF9nUB29bT4Tj6f6vQI7ATDLNdmotoqRcRwm6ZbyBe40YKxEMfG00OaJYDQ4J');
@@ -29,7 +27,9 @@ const startApolloServer = async () => {
   app.use(express.json());
   app.use(bodyParser.json()); //needed for the calculate total amount function
   
-  app.use('/graphql', expressMiddleware(server));
+  app.use('/graphql', expressMiddleware(server, {
+    context: authMiddleware
+  }));
 
   // if we're in production, serve client/dist as static assets
 
