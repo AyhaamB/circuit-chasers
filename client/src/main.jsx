@@ -21,6 +21,7 @@ import RaceSchedule from './pages/RaceSchedule.jsx'
 import RacerPage from './pages/Racer.jsx';
 import TeamsPage from './pages/TeamsPage.jsx';
 import CircuitPage from './pages/CircuitsPage.jsx'
+import SignupPage from './pages/SignupPage.jsx'
 
 
 
@@ -74,7 +75,9 @@ const router = createBrowserRouter([
       },{
         path: '/circuits',
         element: <CircuitPage/>
-
+      }, {
+        path: '/signup',
+        element: <SignupPage />
       }
     ],
   },

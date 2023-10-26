@@ -1,13 +1,17 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import React from "react";
+import { useNavigate } from "react-router-dom";
 import Auth from "../utils/auth";
 
-export default function Header({toggleLoginOpen}) {
+export default function Header({ toggleLoginOpen }) {
   const navigate = useNavigate();
 
   const handleLoginClick = () => {
-    navigate('/login');
+    navigate("/login");
   };
+
+  const handleSignUpClick = () => {
+    navigate('/signup')
+  }
 
   const logout = (event) => {
     event.preventDefault();
@@ -18,10 +22,7 @@ export default function Header({toggleLoginOpen}) {
     <nav className="navbar navbar-expand-lg">
       <div className="container-fluid">
         <a className="navbar-brand" href="/">
-          <img
-            className="main-logo"
-            src="/circuit-chasers-logo.png"
-          ></img>
+          <img className="main-logo" src="/circuit-chasers-logo.png"></img>
         </a>
         <button
           className="navbar-toggler"
@@ -55,7 +56,7 @@ export default function Header({toggleLoginOpen}) {
               <a className="nav-link" href="/merch">
                 Store
               </a>
-            </li>    
+            </li>
             <li className="nav-item">
               <a className="nav-link" href="/donate">
                 Donate
@@ -71,35 +72,37 @@ export default function Header({toggleLoginOpen}) {
               placeholder="Search"
               aria-label="Search"
             ></input>
-            <button className="btn btn-dark" type="submit">
+            <button className="btn btn-dark m-1" type="submit">
               Search
             </button>
-          </form>
-        </div>
-        <div>
-           
-            {!Auth.loggedIn() ? (
-               <button className="login-btn btn btn-dark" type="button" onClick={handleLoginClick} >
-              Login/Sign Up
-            </button>
-          ) : (
-            <></>
-          )}
-            {/* if logged in */}
             {Auth.loggedIn() ? (
               <>
-                <span>
-                  Hey there,
-                  {Auth.getProfile().data.name}!
-                </span>
-                <button onClick={logout}>Logout </button>
+                <button className="btn btn-dark m-1">Profile</button>
+                <button className="btn btn-dark m-1" onClick={logout}>
+                  Logout{" "}
+                </button>
               </>
             ) : (
-              <p>Hello there </p>
+              <div className=" d-flex">
+                <button
+                  className="login-btn btn btn-dark m-1"
+                  type="button"
+                  onClick={handleLoginClick}
+                >
+                  Login
+                </button>
+                <button
+                  className="signup-btn btn btn-dark m-1"
+                  type="button"
+                  onClick={handleSignUpClick}
+                >
+                  Register
+                </button>
+              </div>
             )}
+          </form>
         </div>
       </div>
     </nav>
   );
 }
-

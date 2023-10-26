@@ -474,3 +474,13 @@ body {
   font-size: 20px;
 }
 
+.create-post-form {
+  display: grid;
+  grid-template-rows: 30% 70%;
+}
+
+.create-post-form form{
+  display: flex;
+  flex-direction: column;
+}
+

@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import { QUERY_USER } from "../utils/queries";
+import Auth from "../utils/auth";
 
 const Post = () => {
   const { loading, data } = useQuery(QUERY_USER, {
@@ -24,7 +25,15 @@ const Post = () => {
         </div>
       </div>
       <div className="join-disc">
-        <p>Login To Create A Post</p>
+      {Auth.loggedIn() ? (
+              <p>
+               Whats Up
+              </p>
+            ) : (
+              <div>
+                HEEEEEHEEEEEE
+              </div>
+            )}
       </div>
     </div>
   );
