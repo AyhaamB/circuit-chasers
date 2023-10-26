@@ -17,6 +17,7 @@ import News from './pages/News.jsx';
 import NotFound from './pages/NotFound';
 import Donate from './pages/Donate.jsx';
 import Login from './pages/Login.jsx'
+import Signup from './pages/Signup.jsx'
 import RaceSchedule from './pages/RaceSchedule.jsx'
 import RacerPage from './pages/Racer.jsx';
 import TeamsPage from './pages/TeamsPage.jsx';
@@ -56,13 +57,16 @@ const router = createBrowserRouter([
       }, {
         path: '/donate',
         element: <Donate/>
-
       },
       {
         path: '/login',
         element: <Login/>
-
-      }, {
+      }, 
+      {
+        path: '/signup',
+        element: <Signup/>
+      }, 
+      {
         path: '/raceschedule',
         element: <RaceSchedule/>
       }, {

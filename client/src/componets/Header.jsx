@@ -1,11 +1,22 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import Auth from '../utils/auth';
+import { Link } from 'react-router-dom';
 
 export default function Header({toggleLoginOpen}) {
   const navigate = useNavigate();
 
   const handleLoginClick = () => {
     navigate('/login');
+  };
+  
+  const handleSignupClick = () => {
+    navigate('/signup');
+  };
+
+  const logout = (event) => {
+    event.preventDefault();
+    Auth.logout();
   };
 
   return (
@@ -99,9 +110,25 @@ export default function Header({toggleLoginOpen}) {
           </form>
         </div>
         <div>
+        {Auth.loggedIn() ? (
+            <>
+              <Link className="btn btn-lg btn-info m-2" to="/me">
+                {Auth.getProfile().data.name}'s profile
+              </Link>
+              <button className="btn btn-lg btn-light m-2" onClick={logout}>
+                Logout
+              </button>
+            </>
+          ) : (
+            <div>
             <button className="login-btn btn btn-dark" type="button" onClick={handleLoginClick} >
-              Login/Sign Up
+              Login
             </button>
+            <button className="login-btn btn btn-dark" type="button" onClick={handleSignupClick} >
+              Signup
+            </button>
+            </div>
+          )}
         </div>
       </div>
     </nav>
