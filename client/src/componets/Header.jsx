@@ -1,11 +1,17 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import Auth from "../utils/auth";
 
 export default function Header({toggleLoginOpen}) {
   const navigate = useNavigate();
 
   const handleLoginClick = () => {
     navigate('/login');
+  };
+
+  const logout = (event) => {
+    event.preventDefault();
+    Auth.logout();
   };
 
   return (
@@ -71,9 +77,26 @@ export default function Header({toggleLoginOpen}) {
           </form>
         </div>
         <div>
-            <button className="login-btn btn btn-dark" type="button" onClick={handleLoginClick} >
+           
+            {!Auth.loggedIn() ? (
+               <button className="login-btn btn btn-dark" type="button" onClick={handleLoginClick} >
               Login/Sign Up
             </button>
+          ) : (
+            <></>
+          )}
+            {/* if logged in */}
+            {Auth.loggedIn() ? (
+              <>
+                <span>
+                  Hey there,
+                  {Auth.getProfile().data.name}!
+                </span>
+                <button onClick={logout}>Logout </button>
+              </>
+            ) : (
+              <p>Hello there </p>
+            )}
         </div>
       </div>
     </nav>
